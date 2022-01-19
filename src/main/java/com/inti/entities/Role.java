@@ -20,9 +20,9 @@ public class Role implements Serializable {
 	private Long idRole;
 	private String nomRole;
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "Profil", joinColumns = @JoinColumn(name = "id_Role", referencedColumnName = "idRole"), inverseJoinColumns = @JoinColumn(name = "id_Personne", referencedColumnName = "idPersonne"))
-	private Set<Personne> personnes = new HashSet<>();
+//	@ManyToMany(fetch = FetchType.EAGER)
+//	@JoinTable(name = "Profil", joinColumns = @JoinColumn(name = "id_Role", referencedColumnName = "idRole"), inverseJoinColumns = @JoinColumn(name = "id_Personne", referencedColumnName = "idPersonne"))
+//	private Set<Personne> personnes = new HashSet<>();
 
 	public Role() {
 	}
@@ -49,13 +49,13 @@ public class Role implements Serializable {
 		this.nomRole = nomRole;
 	}
 
-	public Set<Personne> getPersonnes() {
-		return personnes;
-	}
-
-	public void setPersonnes(Set<Personne> personnes) {
-		this.personnes = personnes;
-	}
+//	public Set<Personne> getPersonnes() {
+//		return personnes;
+//	}
+//
+//	public void setPersonnes(Set<Personne> personnes) {
+//		this.personnes = personnes;
+//	}
 
 	@Override
 	public String toString() {
