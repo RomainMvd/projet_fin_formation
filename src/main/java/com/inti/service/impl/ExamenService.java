@@ -3,12 +3,13 @@ package com.inti.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.Examen;
 import com.inti.repository.ExamenRepository;
 import com.inti.entities.Examen;
 import com.inti.service.interfaces.IExamenService;
-
+@Service
 public class ExamenService implements IExamenService {
 	@Autowired
 	ExamenRepository examenRepository;

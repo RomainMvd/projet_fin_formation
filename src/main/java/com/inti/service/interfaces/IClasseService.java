@@ -13,5 +13,5 @@ public interface IClasseService {
 
 	void delete(Long idClasse);
 
-	Classe findByIdAndNom(Long idClasse, String nomClasse);
+	Classe findByIdClasseAndNomClasse(Long idClasse, String nomClasse);
 }
