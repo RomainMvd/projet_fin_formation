@@ -3,9 +3,11 @@ package com.inti.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("enseignant")
 public class Enseignant extends Personne implements Serializable {
 	private double salaire;
 

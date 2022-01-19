@@ -14,10 +14,10 @@ import com.inti.service.interfaces.IMatiereService;
 public class MatiereService implements IMatiereService {
 	@Autowired
 	MatiereRepository matiereRepository;
-	
+
 	@Override
 	public List<Matiere> findAll() {
-		
+
 		return matiereRepository.findAll();
 	}
 
@@ -34,7 +34,7 @@ public class MatiereService implements IMatiereService {
 	@Override
 	public void delete(Long idMatiere) {
 		matiereRepository.deleteById(idMatiere);
-		
+
 	}
 
 	@Override

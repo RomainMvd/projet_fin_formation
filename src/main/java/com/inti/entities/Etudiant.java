@@ -4,17 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("etudiant")
 public class Etudiant extends Personne implements Serializable {
-	private double moyenne;
+	private Double moyenne;
 
-	public double getMoyenne() {
+	public Double getMoyenne() {
 		return moyenne;
 	}
 
-	public void setMoyenne(double moyenne) {
+	public void setMoyenne(Double moyenne) {
 		this.moyenne = moyenne;
 	}
 
@@ -36,7 +38,7 @@ public class Etudiant extends Personne implements Serializable {
 	}
 
 	public Etudiant(String nomPersonne, String prenomPersonne, Date dateNaissance, String username, String password,
-			String email, double moyenne) {
+			String email, Double moyenne) {
 		super(nomPersonne, prenomPersonne, dateNaissance, username, password, email);
 		this.moyenne = moyenne;
 	}
