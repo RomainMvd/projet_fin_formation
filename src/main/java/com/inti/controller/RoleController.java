@@ -31,7 +31,7 @@ public class RoleController {
 
 	@RequestMapping(value = "roles/{idR}/{nomRole}", method = RequestMethod.GET)
 	public Role findByIdAndNom(@PathVariable("idR") Long idRole, @PathVariable("nomRole") String nomRole) {
-		return roleService.findByIdAndRole(idRole, nomRole);
+		return roleService.findByIdRoleAndNomRole(idRole, nomRole);
 	}
 
 	@RequestMapping(value = "roles", method = RequestMethod.POST)

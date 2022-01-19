@@ -9,6 +9,7 @@ import com.inti.entities.Examen;
 import com.inti.repository.ExamenRepository;
 import com.inti.entities.Examen;
 import com.inti.service.interfaces.IExamenService;
+
 @Service
 public class ExamenService implements IExamenService {
 	@Autowired
