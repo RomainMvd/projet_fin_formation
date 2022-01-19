@@ -30,7 +30,7 @@ public class Cours implements Serializable{
 	@ManyToOne
 	private Matiere matiere;
 	
-	@OneToMany(mappedBy="cours")
+	@OneToMany(mappedBy = "cours")
 	private List<Evaluation> evaluation = new ArrayList<>();
 	
 	public Cours () {

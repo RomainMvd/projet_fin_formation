@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Enseignant;
+import com.inti.entities.Enseignant;
 import com.inti.service.interfaces.IEnseignantService;
 
 @RestController
@@ -23,6 +25,10 @@ public class EnseignantController {
 
 	@Autowired
 	IEnseignantService enseignantService;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
 	
 	// BASIC FUNCTION
 	
@@ -41,7 +47,7 @@ public class EnseignantController {
 		return enseignantService.findByUsername(username);
 	}
 	
-	
+	/*
 	@PostMapping("/enseignants")
 	public String saveEnseignant(@RequestParam(name = "nomEnseignant", required = false) String nomEnseignant, @RequestParam(name = "prenomEnseignant", required = false) String prenomEnseignant,
 			@RequestParam(name = "username", required = false) String username, @RequestParam(name="password", required = false) String password, @RequestParam(name = "moyenne", required = false) double salaire,
@@ -51,15 +57,30 @@ public class EnseignantController {
 			currentEnseignant.setNomPersonne(nomEnseignant);
 			currentEnseignant.setPrenomPersonne(prenomEnseignant);
 			currentEnseignant.setUsername(username);
-			currentEnseignant.setPassword(password);
+			currentEnseignant.setPassword(passwordEncoder.encode(password));
 			currentEnseignant.setSalaire(salaire);
 			currentEnseignant.setDateNaissance(dateNaissance);
 			currentEnseignant.setEmail(emailEnseignant);
+			enseignantService.save(currentEnseignant);
 			return "Enseignant uploaded";
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			return "Error";
 		}
+	}
+	*/
+	
+	@PostMapping("/enseignants")
+	public Enseignant saveEnseignant(@RequestBody Enseignant enseignant) {
+		Enseignant currentEnseignant = new Enseignant();
+		currentEnseignant.setNomPersonne(enseignant.getNomPersonne());
+		currentEnseignant.setPrenomPersonne(enseignant.getPrenomPersonne());
+		currentEnseignant.setUsername(enseignant.getUsername());
+		currentEnseignant.setPassword(passwordEncoder.encode(enseignant.getPassword()));
+		currentEnseignant.setSalaire(enseignant.getSalaire());
+		currentEnseignant.setDateNaissance(enseignant.getDateNaissance());
+		currentEnseignant.setEmail(enseignant.getEmail());
+		return enseignantService.save(currentEnseignant);
 	}
 	
 	@PutMapping("/enseignants/{idE}")

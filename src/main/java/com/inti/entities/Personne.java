@@ -34,7 +34,8 @@ public class Personne implements Serializable {
 	private String username;
 	private String password;
 	private String email;
-	
+	private boolean enabled = true;
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "PersonneMatiere", joinColumns = @JoinColumn(name = "id_personne", referencedColumnName = "idPersonne"), inverseJoinColumns = @JoinColumn(name = "id_matiere", referencedColumnName = "idMatiere"))
 	private Set<Matiere> matieres = new HashSet<>();

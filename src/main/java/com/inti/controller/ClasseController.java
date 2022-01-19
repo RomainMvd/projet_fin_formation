@@ -30,7 +30,8 @@ public class ClasseController {
 	}
 
 	@RequestMapping(value = "classes/{idC}/{nomC}", method = RequestMethod.GET)
-	public Classe findByIdAndNom(@PathVariable("idC") Long idClasse, @PathVariable("nomC") String nomClasse) {
+
+	public Classe findByIdClasseAndNomClasse(@PathVariable("idC") Long idClasse, @PathVariable("nomC") String nomClasse) {
 		return classeService.findByIdClasseAndNomClasse(idClasse, nomClasse);
 	}
 
