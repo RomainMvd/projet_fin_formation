@@ -8,14 +8,15 @@ import org.springframework.stereotype.Service;
 import com.inti.entities.Matiere;
 import com.inti.repository.MatiereRepository;
 import com.inti.service.interfaces.IMatiereService;
+
 @Service
 public class MatiereService implements IMatiereService {
 	@Autowired
 	MatiereRepository matiereRepository;
-	
+
 	@Override
 	public List<Matiere> findAll() {
-		
+
 		return matiereRepository.findAll();
 	}
 
@@ -32,7 +33,7 @@ public class MatiereService implements IMatiereService {
 	@Override
 	public void delete(Long idMatiere) {
 		matiereRepository.deleteById(idMatiere);
-		
+
 	}
 
 	@Override

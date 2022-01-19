@@ -21,7 +21,7 @@ public class Correction implements Serializable {
 	@Lob
 	private byte[] fichierCorrection;
 
-	@OneToOne(mappedBy = "correction")
+	@OneToOne
 	@JoinColumn(name = "id_Examen")
 	private Examen examen;
 
