@@ -31,8 +31,7 @@ public class Examen implements Serializable {
 	@JoinColumn(name = "id_matiere")
 	private Matiere matiere;
 
-	@OneToOne
-	@JoinColumn(name = "id_correction")
+	@OneToOne(mappedBy="examen")
 	private Correction correction;
 
 	public Examen() {

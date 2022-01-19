@@ -13,5 +13,5 @@ public interface IRoleService {
 
 	void delete(Long idRole);
 
-	Role findByIdAndRole(Long idRole, String nomRole);
+	Role findByIdRoleAndNomRole(Long idRole, String nomRole);
 }

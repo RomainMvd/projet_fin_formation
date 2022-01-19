@@ -40,7 +40,7 @@ public class Personne implements Serializable {
 	private Set<Matiere> matieres = new HashSet<>();
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "Profil", joinColumns = @JoinColumn(name = "id_personne", referencedColumnName = "idPersonne"), inverseJoinColumns = @JoinColumn(name = "id_rolee", referencedColumnName = "idRole"))
+	@JoinTable(name = "Profil", joinColumns = @JoinColumn(name = "id_personnee", referencedColumnName = "idPersonne"), inverseJoinColumns = @JoinColumn(name = "id_rolee", referencedColumnName = "idRole"))
 	private Set<Role> roles = new HashSet<>();
 
 	@ManyToOne(fetch = FetchType.EAGER)
