@@ -17,99 +17,99 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Examen implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idExamen;
-	private String nomExamen;
-	@Temporal(TemporalType.DATE)
-	private Date dateExamen;
-	private String duree;
-	@Lob
-	private byte[] fichierExamen;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idExamen;
+    private String nomExamen;
+    @Temporal(TemporalType.DATE)
+    private Date dateExamen;
+    private String duree;
+    @Lob
+    private byte[] fichierExamen;
 
-	@ManyToOne
-	@JoinColumn(name = "id_matiere")
-	private Matiere matiere;
-
-
-	@OneToOne(mappedBy= "examen")
-	@JoinColumn(name = "id_correction")
-	private Correction correction;
-
-	public Examen() {
-
-	}
-
-	public Examen(Long idExamen, String nomExamen, String duree, byte[] fichierExamen, Matiere matiere) {
-		super();
-		this.idExamen = idExamen;
-		this.nomExamen = nomExamen;
-		this.duree = duree;
-		this.fichierExamen = fichierExamen;
-		this.matiere = matiere;
-	}
-
-	public Long getIdExamen() {
-		return idExamen;
-	}
-
-	public void setIdExamen(Long idExamen) {
-		this.idExamen = idExamen;
-	}
-
-	public String getNomExamen() {
-		return nomExamen;
-	}
-
-	public void setNomExamen(String nomExamen) {
-		this.nomExamen = nomExamen;
-	}
+    @ManyToOne
+    @JoinColumn(name = "id_matiere")
+    private Matiere matiere;
 
 
-	public byte[] getFichierExamen() {
-		return fichierExamen;
-	}
+    @OneToOne(mappedBy= "examen")
+    @JoinColumn(name = "id_correction")
+    private Correction correction;
 
-	public void setFichierExamen(byte[] fichierExamen) {
-		this.fichierExamen = fichierExamen;
-	}
+    public Examen() {
 
-	public Matiere getMatiere() {
-		return matiere;
-	}
+    }
 
-	public void setMatiere(Matiere matiere) {
-		this.matiere = matiere;
-	}
+    public Examen(Long idExamen, String nomExamen, String duree, byte[] fichierExamen, Matiere matiere) {
+        super();
+        this.idExamen = idExamen;
+        this.nomExamen = nomExamen;
+        this.duree = duree;
+        this.fichierExamen = fichierExamen;
+        this.matiere = matiere;
+    }
 
-	public Correction getCorrection() {
-		return correction;
-	}
+    public Long getIdExamen() {
+        return idExamen;
+    }
 
-	public void setCorrection(Correction correction) {
-		this.correction = correction;
-	}
+    public void setIdExamen(Long idExamen) {
+        this.idExamen = idExamen;
+    }
 
-	public Date getDateExamen() {
-		return dateExamen;
-	}
+    public String getNomExamen() {
+        return nomExamen;
+    }
 
-	public void setDateExamen(Date dateExamen) {
-		this.dateExamen = dateExamen;
-	}
+    public void setNomExamen(String nomExamen) {
+        this.nomExamen = nomExamen;
+    }
 
-	public String getDuree() {
-		return duree;
-	}
 
-	public void setDuree(String duree) {
-		this.duree = duree;
-	}
+    public byte[] getFichierExamen() {
+        return fichierExamen;
+    }
 
-	@Override
-	public String toString() {
-		return "Examen [idExamen=" + idExamen + ", nomExamen=" + nomExamen + ", duree=" + duree + ", fichierExamen="
-				+ Arrays.toString(fichierExamen) + ", matiere=" + matiere + "]";
-	}
+    public void setFichierExamen(byte[] fichierExamen) {
+        this.fichierExamen = fichierExamen;
+    }
+
+    public Matiere getMatiere() {
+        return matiere;
+    }
+
+    public void setMatiere(Matiere matiere) {
+        this.matiere = matiere;
+    }
+
+    public Correction getCorrection() {
+        return correction;
+    }
+
+    public void setCorrection(Correction correction) {
+        this.correction = correction;
+    }
+
+    public Date getDateExamen() {
+        return dateExamen;
+    }
+
+    public void setDateExamen(Date dateExamen) {
+        this.dateExamen = dateExamen;
+    }
+
+    public String getDuree() {
+        return duree;
+    }
+
+    public void setDuree(String duree) {
+        this.duree = duree;
+    }
+
+    @Override
+    public String toString() {
+        return "Examen [idExamen=" + idExamen + ", nomExamen=" + nomExamen + ", duree=" + duree + ", fichierExamen="
+                + Arrays.toString(fichierExamen) + ", matiere=" + matiere + "]";
+    }
 
 }

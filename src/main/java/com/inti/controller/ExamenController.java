@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +22,7 @@ import com.inti.service.interfaces.IExamenService;
 public class ExamenController {
 	@Autowired
 	IExamenService examenService;
-	
+
 	@RequestMapping(value = "examens", method = RequestMethod.GET)
 	public List<Examen> findAll() {
 		return examenService.findAll();
@@ -33,26 +34,26 @@ public class ExamenController {
 	}
 
 	@RequestMapping(value = "examens", method = RequestMethod.POST)
-	 public String saveExamen(@RequestParam(name = "nomExamen", required = false) String nomExamen,
-	            @RequestParam(name = "dateExamen", required = false) Date dateExamen,
-	            @RequestParam(name = "duree", required = false) String duree,
-	            @RequestParam(name = "fichierExamen", required = false) MultipartFile fichierExamen) {
-	        try {
-	            Examen currentExam = new Examen();
-	            currentExam.setNomExamen(nomExamen);
-	            currentExam.setDateExamen(dateExamen);
-	            currentExam.setDuree(duree);
-	             if(fichierExamen != null) {
-	                 currentExam.setFichierExamen(fichierExamen.getBytes());
-	             }
-	            // currentExam.setFichierExamen(fichierExamen.getBytes());
-	            examenService.save(currentExam);
-	            return "File uploaded successfully! filename=" + fichierExamen.getOriginalFilename();
-	        } catch (Exception ex) {
-	            ex.printStackTrace();
-	            return "Fail!";
-	        }
-	    }
+	public String saveExamen(@RequestParam(name = "nomExamen", required = false) String nomExamen,
+			@RequestParam(name = "dateExamen", required = false) Date dateExamen,
+			@RequestParam(name = "duree", required = false) String duree,
+			@RequestParam(name = "fichierExamen", required = false) MultipartFile fichierExamen) {
+		try {
+			Examen currentExam = new Examen();
+			currentExam.setNomExamen(nomExamen);
+			currentExam.setDateExamen(dateExamen);
+			currentExam.setDuree(duree);
+			if (fichierExamen != null) {
+				currentExam.setFichierExamen(fichierExamen.getBytes());
+			}
+			// currentExam.setFichierExamen(fichierExamen.getBytes());
+			examenService.save(currentExam);
+			return "File uploaded successfully! filename=" + fichierExamen.getOriginalFilename();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return "Fail!";
+		}
+	}
 
 	@RequestMapping(value = "examens/{idExamen}", method = RequestMethod.DELETE)
 	public void deleteExamen(@PathVariable("idExamen") Long idExamen) {
