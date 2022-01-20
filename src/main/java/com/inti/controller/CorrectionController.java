@@ -58,7 +58,7 @@ public class CorrectionController {
             return "File uploaded successfully! filename=" + fichierCorrection.getOriginalFilename();
         } catch (Exception ex) {
             ex.printStackTrace();
-            return "Fail!";
+            return "Fail! ";
         }
     }
 
