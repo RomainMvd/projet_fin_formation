@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Evaluation;
+import com.inti.service.interfaces.ICoursService;
 import com.inti.service.interfaces.IEvaluationService;
 
 @RestController
@@ -20,6 +21,8 @@ import com.inti.service.interfaces.IEvaluationService;
 public class EvaluationController {
 	@Autowired
 	IEvaluationService evaluationService;
+	@Autowired
+	ICoursService coursService;
 
 	@RequestMapping(value = "evaluations", method = RequestMethod.GET)
 	public List<Evaluation> findAll() {
@@ -36,17 +39,18 @@ public class EvaluationController {
 			@PathVariable("nomCours") String nomCours) {
 		return evaluationService.findByIdEvaluationAndNomCours(idEvaluation, nomCours);
 	}
+	
 
-	@PostMapping("evaluations")
-	public Evaluation saveEvaluation(@RequestParam(name = "noteCours", required = false) Long noteCours,
-			@RequestParam(name = "commentaire", required = false) String commentaire,
-			@RequestParam(name = "nomCours", required = false) String nomCours) {
+
+
+	@PostMapping("/evaluations/{nomCours}")
+	public Evaluation saveEvaluation(@PathVariable("nomCours") String nomCours,
+		@RequestParam(name ="note", required = false) Long noteCours,
+		@RequestParam(name = "commentaire", required = false) String commentaire){
 		Evaluation currentEva = new Evaluation();
 		currentEva.setNoteCours(noteCours);
 		currentEva.setCommentaire(commentaire);
-		currentEva.setNomCours(nomCours);
 		return evaluationService.save(currentEva);
-
 	}
 
 	@RequestMapping(value = "evaluations/{idEv}", method = RequestMethod.PUT)
