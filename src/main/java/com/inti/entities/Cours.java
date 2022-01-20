@@ -22,7 +22,7 @@ public class Cours implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCours;
 	private String chapitre;
-	private int nbrHeure;
+	private Long nbrHeure;
 	
 	@Lob
 	private byte [] fichierCours;
@@ -37,7 +37,7 @@ public class Cours implements Serializable{
 		
 	}
 
-	public Cours(String chapitre, int nbrHeure, byte[] fichierCours) {
+	public Cours(String chapitre, Long nbrHeure, byte[] fichierCours) {
 		this.chapitre = chapitre;
 		this.nbrHeure = nbrHeure;
 		this.fichierCours = fichierCours;
@@ -59,11 +59,11 @@ public class Cours implements Serializable{
 		this.chapitre = chapitre;
 	}
 
-	public int getNbrHeure() {
+	public Long getNbrHeure() {
 		return nbrHeure;
 	}
 
-	public void setNbrHeure(int nbrHeure) {
+	public void setNbrHeure(Long nbrHeure) {
 		this.nbrHeure = nbrHeure;
 	}
 
