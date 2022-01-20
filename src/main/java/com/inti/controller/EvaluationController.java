@@ -37,7 +37,7 @@ public class EvaluationController {
 		return evaluationService.findByIdEvaluationAndNomCours(idEvaluation, nomCours);
 	}
 
-	@PostMapping("/evaluations")
+	@PostMapping("evaluations")
 	public Evaluation saveEvaluation(@RequestParam(name = "noteCours", required = false) Long noteCours,
 			@RequestParam(name = "commentaire", required = false) String commentaire,
 			@RequestParam(name = "nomCours", required = false) String nomCours) {
