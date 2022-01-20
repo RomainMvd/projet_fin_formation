@@ -67,6 +67,14 @@ public class Cours implements Serializable{
 		this.nbrHeure = nbrHeure;
 	}
 
+	public List<Evaluation> getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(List<Evaluation> evaluation) {
+		this.evaluation = evaluation;
+	}
+
 	public byte[] getFichierCours() {
 		return fichierCours;
 	}
