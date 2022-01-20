@@ -17,9 +17,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Examen implements Serializable {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idExamen;
 	private String nomExamen;
 	private String duree; // DOUBLE OU STRING ?
@@ -27,21 +27,21 @@ public class Examen implements Serializable {
 	private Date dateExamen;
 	@Lob
 	private byte[] fichierExamen;
-	@Lob 
+	@Lob
 	private byte[] fichierReponseExamen;
-	
+
 	@ManyToOne
 
-	@JoinColumn(name="id_cours")
+	@JoinColumn(name = "id_cours")
 	private Cours cours;
-	
-	@OneToOne(mappedBy="examen")
-	@JoinColumn(name="id_correction")
+
+	@OneToOne(mappedBy = "examen")
+	@JoinColumn(name = "id_correction")
 	private Correction correction;
 
 	public Examen(String nomExamen, String duree, Date dateExamen, byte[] fichierExamen, byte[] fichierReponseExamen,
 			Cours cours, Correction correction) {
-		
+
 		this.nomExamen = nomExamen;
 		this.duree = duree;
 		this.dateExamen = dateExamen;
@@ -51,9 +51,8 @@ public class Examen implements Serializable {
 		this.correction = correction;
 	}
 
-
 	public Examen(String nomExamen, String duree, Date dateExamen, byte[] fichierExamen, byte[] fichierReponseExamen) {
-		
+
 		this.nomExamen = nomExamen;
 		this.dateExamen = dateExamen;
 		this.duree = duree;
@@ -64,7 +63,6 @@ public class Examen implements Serializable {
 	}
 
 	public Examen() {
-		
 
 	}
 
@@ -84,27 +82,13 @@ public class Examen implements Serializable {
 		this.nomExamen = nomExamen;
 	}
 
-	public byte[] getFichierExamen() {
-		return fichierExamen;
-
 	public String getDuree() {
 		return duree;
-
 	}
 
 	public void setDuree(String duree) {
 		this.duree = duree;
 	}
-
-
-	
-
-	public Cours getCours() {
-		return cours;
-	}
-
-	public void setCours(Cours cours) {
-		this.cours = cours;
 
 	public Date getDateExamen() {
 		return dateExamen;
@@ -112,7 +96,6 @@ public class Examen implements Serializable {
 
 	public void setDateExamen(Date dateExamen) {
 		this.dateExamen = dateExamen;
-
 	}
 
 	public byte[] getFichierExamen() {
@@ -130,25 +113,6 @@ public class Examen implements Serializable {
 	public void setFichierReponseExamen(byte[] fichierReponseExamen) {
 		this.fichierReponseExamen = fichierReponseExamen;
 	}
-
-
-	public String getDuree() {
-		return duree;
-	}
-
-	public void setDuree(String duree) {
-		this.duree = duree;
-	}
-
-	@Override
-	public String toString() {
-		return "Examen [idExamen=" + idExamen + ", nomExamen=" + nomExamen + ", dateExamen=" + dateExamen + ", duree="
-				+ duree + ", fichierExamen=" + Arrays.toString(fichierExamen) + ", cours=" + cours + ", correction="
-				+ correction + "]";
-	}
-
-	
-
 
 	public Cours getCours() {
 		return cours;
@@ -172,7 +136,6 @@ public class Examen implements Serializable {
 				+ dateExamen + ", fichierExamen=" + Arrays.toString(fichierExamen) + ", fichierReponseExamen="
 				+ Arrays.toString(fichierReponseExamen) + ", cours=" + cours + ", correction=" + correction + "]";
 	}
-	
 
 }
 /*
@@ -202,9 +165,9 @@ public class Examen implements Serializable {
  * 
  * 
  * public Examen(Long idExamen, String nomExamen, String duree, byte[]
- * fichierExamen, Matiere matiere) {  this.idExamen = idExamen;
- * this.nomExamen = nomExamen; this.duree = duree; this.fichierExamen =
- * fichierExamen; this.matiere = matiere; }
+ * fichierExamen, Matiere matiere) { this.idExamen = idExamen; this.nomExamen =
+ * nomExamen; this.duree = duree; this.fichierExamen = fichierExamen;
+ * this.matiere = matiere; }
  * 
  * public Long getIdExamen() { return idExamen; }
  * 

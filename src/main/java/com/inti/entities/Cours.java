@@ -15,23 +15,20 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
-
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
-@DiscriminatorColumn(name = "cours_type", discriminatorType = DiscriminatorType.STRING) 
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "cours_type", discriminatorType = DiscriminatorType.STRING)
 public class Cours implements Serializable {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCours;
-
-
 	private String nomCours;
 	private String nomMatiere; // A RETIRER ?
 	private Double nbrHeure;
 
-	
 	@OneToMany(mappedBy = "cours")
 	private Set<Evaluation> evaluations = new HashSet<>();
-	
+
 	@OneToMany(mappedBy = "cours")
 	private Set<Examen> examens = new HashSet<>();
 
@@ -44,7 +41,9 @@ public class Cours implements Serializable {
 		this.examens = examens;
 	}
 
-
+	public Cours(String nomCours, String nomMatiere, Double nbrHeure) {
+		this.nomCours = nomCours;
+		this.nomMatiere = nomMatiere;
 		this.nbrHeure = nbrHeure;
 	}
 
@@ -67,7 +66,6 @@ public class Cours implements Serializable {
 		this.nomCours = nomCours;
 	}
 
-
 	public String getNomMatiere() {
 		return nomMatiere;
 	}
@@ -78,11 +76,14 @@ public class Cours implements Serializable {
 
 	public Double getNbrHeure() {
 		return nbrHeure;
-
 	}
 
 	public void setNbrHeure(Double nbrHeure) {
 		this.nbrHeure = nbrHeure;
+	}
+
+	public Set<Evaluation> getEvaluations() {
+		return evaluations;
 	}
 
 	public void setEvaluations(Set<Evaluation> evaluations) {
@@ -97,12 +98,12 @@ public class Cours implements Serializable {
 		this.examens = examens;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Cours [idCours=" + idCours + ", nomCours=" + nomCours + ", nomMatiere=" + nomMatiere + ", nbrHeure="
 				+ nbrHeure + "]";
 	}
+
 }
 /*
  * @Id
