@@ -36,8 +36,8 @@ public class EvaluationService implements IEvaluationService {
 	}
 
 	@Override
-	public Evaluation findByIdEvaluationAndNomCours(Long idEvaluation, String nomCours) {
-		return evaluationRepository.findByIdEvaluationAndNomCours(idEvaluation, nomCours);
+	public List<Evaluation> findByNomCours(String nomCours) {
+		return evaluationRepository.findByNomCours(nomCours);
 	}
 
 }
