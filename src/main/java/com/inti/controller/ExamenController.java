@@ -33,20 +33,19 @@ public class ExamenController {
 		return examenService.findOne(nomExamen);
 	}
 
-<<<<<<< HEAD
-	@PostMapping("/examens")
+	@RequestMapping(value = "examens", method = RequestMethod.POST)
 	public String saveExamen(@RequestParam(name = "nomExamen", required = false) String nomExamen,
 			@RequestParam(name = "dateExamen", required = false) Date dateExamen,
-			@RequestParam(name = "duree", required = false) Double duree,
+			@RequestParam(name = "duree", required = false) String duree,
 			@RequestParam(name = "fichierExamen", required = false) MultipartFile fichierExamen) {
 		try {
 			Examen currentExam = new Examen();
 			currentExam.setNomExamen(nomExamen);
 			currentExam.setDateExamen(dateExamen);
 			currentExam.setDuree(duree);
-			 if(fichierExamen != null) {
-				 currentExam.setFichierExamen(fichierExamen.getBytes());
-             }
+			if (fichierExamen != null) {
+				currentExam.setFichierExamen(fichierExamen.getBytes());
+			}
 			// currentExam.setFichierExamen(fichierExamen.getBytes());
 			examenService.save(currentExam);
 			return "File uploaded successfully! filename=" + fichierExamen.getOriginalFilename();
@@ -55,29 +54,6 @@ public class ExamenController {
 			return "Fail!";
 		}
 	}
-=======
-	@RequestMapping(value = "examens", method = RequestMethod.POST)
-	 public String saveExamen(@RequestParam(name = "nomExamen", required = false) String nomExamen,
-	            @RequestParam(name = "dateExamen", required = false) Date dateExamen,
-	            @RequestParam(name = "duree", required = false) String duree,
-	            @RequestParam(name = "fichierExamen", required = false) MultipartFile fichierExamen) {
-	        try {
-	            Examen currentExam = new Examen();
-	            currentExam.setNomExamen(nomExamen);
-	            currentExam.setDateExamen(dateExamen);
-	            currentExam.setDuree(duree);
-	             if(fichierExamen != null) {
-	                 currentExam.setFichierExamen(fichierExamen.getBytes());
-	             }
-	            // currentExam.setFichierExamen(fichierExamen.getBytes());
-	            examenService.save(currentExam);
-	            return "File uploaded successfully! filename=" + fichierExamen.getOriginalFilename();
-	        } catch (Exception ex) {
-	            ex.printStackTrace();
-	            return "Fail!";
-	        }
-	    }
->>>>>>> 26f14e2764a665322accf652aa09c2b9f198d1a6
 
 	@RequestMapping(value = "examens/{idExamen}", method = RequestMethod.DELETE)
 	public void deleteExamen(@PathVariable("idExamen") Long idExamen) {
