@@ -23,7 +23,7 @@ public class Examen implements Serializable {
 	private String nomExamen;
 	@Temporal(TemporalType.DATE)
 	private Date dateExamen;
-	private double duree;
+	private Double duree;
 	@Lob
 	private byte[] fichierExamen;
 
@@ -40,7 +40,7 @@ public class Examen implements Serializable {
 
 	}
 
-	public Examen(Long idExamen, String nomExamen, double duree, byte[] fichierExamen, Matiere matiere) {
+	public Examen(Long idExamen, String nomExamen, Double duree, byte[] fichierExamen, Matiere matiere) {
 		super();
 		this.idExamen = idExamen;
 		this.nomExamen = nomExamen;
@@ -95,6 +95,18 @@ public class Examen implements Serializable {
 
 	public void setCorrection(Correction correction) {
 		this.correction = correction;
+	}
+
+	public Date getDateExamen() {
+		return dateExamen;
+	}
+
+	public void setDateExamen(Date dateExamen) {
+		this.dateExamen = dateExamen;
+	}
+
+	public void setDuree(Double duree) {
+		this.duree = duree;
 	}
 
 	@Override
