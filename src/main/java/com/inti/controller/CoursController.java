@@ -16,6 +16,7 @@ import com.inti.service.interfaces.ICoursService;
 
 @RestController
 public class CoursController {
+
 	@Autowired
 	ICoursService coursServ;
 
@@ -31,7 +32,7 @@ public class CoursController {
 
 	@RequestMapping(value = "cours", method = RequestMethod.POST)
 	public String saveCours(@RequestParam(name = "chapitre", required = false) String chapitre,
-			@RequestParam(name = "nbrHeure", required = false) int nbrHeure,
+			@RequestParam(name = "nbrHeure", required = false) Long nbrHeure,
 			@RequestParam(name = "fichierCours", required = false) MultipartFile fichierCours) {
 		try {
 			Cours currentCours = new Cours();
@@ -40,7 +41,6 @@ public class CoursController {
 			if (fichierCours != null) {
 				currentCours.setFichierCours(fichierCours.getBytes());
 			}
-
 			coursServ.save(currentCours);
 			return "File uploaded successfully! filename=" + fichierCours.getOriginalFilename();
 		} catch (Exception ex) {
