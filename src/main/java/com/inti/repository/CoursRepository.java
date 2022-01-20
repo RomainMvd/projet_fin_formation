@@ -1,12 +1,20 @@
 package com.inti.repository;
 
+import java.util.List;
+import java.util.Set;
+
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.inti.entities.Cours;
+import com.inti.entities.Examen;
 
 @Repository
 public interface CoursRepository extends JpaRepository<Cours, Long> {
 
-	Cours findByChapitre (String chapitre);
+	Cours findByNomCours(String nomCours);
+	// PLUS
+	List<Cours> findByNomMatiere(String nomMatiere);
+	List<Cours> findByExamens(Set<Examen> examens);
 }

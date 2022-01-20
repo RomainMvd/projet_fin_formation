@@ -13,25 +13,30 @@ import javax.persistence.ManyToOne;
 public class Evaluation implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idEvaluation;
-	private Long noteCours;
 	private String commentaire;
-	private String nomCours;
-
+	private String nomCours; // A RETIRER ?
+	
 	@ManyToOne
-	@JoinColumn(name = "id_cours")
+	@JoinColumn(name="id_cours")
 	private Cours cours;
 
-	public Evaluation() {
-
-	}
-
-	public Evaluation(Long idEvaluation, Long noteCours, String commentaire, String nomCours) {
-		this.idEvaluation = idEvaluation;
-		this.noteCours = noteCours;
+	public Evaluation(String commentaire, String nomCours, Cours cours) {
+		
 		this.commentaire = commentaire;
 		this.nomCours = nomCours;
+		this.cours = cours;
+	}
+
+	public Evaluation(String commentaire, String nomCours) {
+		
+		this.commentaire = commentaire;
+		this.nomCours = nomCours;
+	}
+
+	public Evaluation() {
+		
 	}
 
 	public Long getIdEvaluation() {
@@ -40,14 +45,6 @@ public class Evaluation implements Serializable {
 
 	public void setIdEvaluation(Long idEvaluation) {
 		this.idEvaluation = idEvaluation;
-	}
-
-	public Long getNoteCours() {
-		return noteCours;
-	}
-
-	public void setNoteCours(Long noteCours) {
-		this.noteCours = noteCours;
 	}
 
 	public String getCommentaire() {
@@ -74,4 +71,55 @@ public class Evaluation implements Serializable {
 		this.cours = cours;
 	}
 
+	@Override
+	public String toString() {
+		return "Evaluation [idEvaluation=" + idEvaluation + ", commentaire=" + commentaire + ", nomCours=" + nomCours
+				+ ", cours=" + cours + "]";
+	}
+	
+	
 }
+/*
+ * 
+ * @Id
+ * 
+ * @GeneratedValue(strategy = GenerationType.IDENTITY) private Long
+ * idEvaluation; private Long noteCours; private String commentaire; private
+ * String nomCours;
+ * 
+ * @ManyToOne
+ * 
+ * @JoinColumn(name = "id_cours") private Cours cours;
+ * 
+ * public Evaluation() {
+ * 
+ * }
+ * 
+ * public Evaluation(Long idEvaluation, Long noteCours, String commentaire,
+ * String nomCours) { this.idEvaluation = idEvaluation; this.noteCours =
+ * noteCours; this.commentaire = commentaire; this.nomCours = nomCours; }
+ * 
+ * public Long getIdEvaluation() { return idEvaluation; }
+ * 
+ * public void setIdEvaluation(Long idEvaluation) { this.idEvaluation =
+ * idEvaluation; }
+ * 
+ * public Long getNoteCours() { return noteCours; }
+ * 
+ * public void setNoteCours(Long noteCours) { this.noteCours = noteCours; }
+ * 
+ * public String getCommentaire() { return commentaire; }
+ * 
+ * public void setCommentaire(String commentaire) { this.commentaire =
+ * commentaire; }
+ * 
+ * public String getNomCours() { return nomCours; }
+ * 
+ * public void setNomCours(String nomCours) { this.nomCours = nomCours; }
+ * 
+ * public Cours getCours() { return cours; }
+ * 
+ * public void setCours(Cours cours) { this.cours = cours; }
+ * 
+ * }
+ */

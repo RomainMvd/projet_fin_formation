@@ -34,8 +34,9 @@ public class CorrectionService implements ICorrectionService {
 		correctionRepository.deleteById(idCorrection);
 	}
 
+
 	@Override
-	public Correction findByIdCorrectionAndNomMatiere(Long idCorrection, String nomMatiere) {
-		return correctionRepository.findByIdCorrectionAndNomMatiere(idCorrection, nomMatiere);
+	public List<Correction> findByNomMatiere(String nomMatiere) {
+		return correctionRepository.findByNomMatiere(nomMatiere);
 	}
 }

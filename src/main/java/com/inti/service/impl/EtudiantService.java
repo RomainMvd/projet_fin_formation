@@ -46,4 +46,19 @@ public class EtudiantService implements IEtudiantService{
 		return etudiantRepository.findByUsernameAndPassword(username, password);
 	}
 
+	@Override
+	public Etudiant findByEmail(String email) {
+		return etudiantRepository.findByEmail(email);
+	}
+
+	@Override
+	public List<Etudiant> findByMoyenne(Double moyenne) {
+		return etudiantRepository.findByMoyenne(moyenne);
+	}
+
+	@Override
+	public List<Etudiant> findByEnabled(boolean enabled) {
+		return etudiantRepository.findByEnabled(enabled);
+	}
+
 }

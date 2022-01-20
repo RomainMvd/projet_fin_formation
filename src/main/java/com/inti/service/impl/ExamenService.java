@@ -1,5 +1,6 @@
 package com.inti.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,15 @@ public class ExamenService implements IExamenService {
 	}
 
 	@Override
-	public Examen findByNomExamen(String nomExamen) {
+	public List<Examen> findByDateExamen(Date dateExamen) {
+		return examenRepository.findByDateExamen(dateExamen);
+	}
+
+	@Override
+	public List<Examen> findByNomExamen(String nomExamen) {
 		return examenRepository.findByNomExamen(nomExamen);
 	}
+
+	
 
 }
