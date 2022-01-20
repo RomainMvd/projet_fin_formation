@@ -11,12 +11,12 @@ public Distanciel() {
 }
 
 
-public Distanciel(String chapitre, int nbrHeure, byte [] fichierCours) {
+public Distanciel(String chapitre, Long nbrHeure, byte [] fichierCours) {
 	super(chapitre, nbrHeure, fichierCours);
 }
 
 
-public Distanciel(String chapitre, int nbrHeure, byte [] fichierCours, String lienZoom) {
+public Distanciel(String chapitre, Long nbrHeure, byte [] fichierCours, String lienZoom) {
 	super(chapitre, nbrHeure, fichierCours);
 	this.lienZoom = lienZoom;
 }
