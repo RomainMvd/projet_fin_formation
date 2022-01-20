@@ -16,6 +16,7 @@ import com.inti.service.interfaces.ICoursService;
 
 @RestController
 public class CoursController {
+
 	@Autowired
 	ICoursService coursServ;
 
@@ -40,7 +41,6 @@ public class CoursController {
 			if (fichierCours != null) {
 				currentCours.setFichierCours(fichierCours.getBytes());
 			}
-
 			coursServ.save(currentCours);
 			return "File uploaded successfully! filename=" + fichierCours.getOriginalFilename();
 		} catch (Exception ex) {

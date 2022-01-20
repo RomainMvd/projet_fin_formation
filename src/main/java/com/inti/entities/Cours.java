@@ -59,8 +59,6 @@ public class Cours implements Serializable{
 		this.chapitre = chapitre;
 	}
 
-
-
 	public Long getNbrHeure() {
 		return nbrHeure;
 	}
