@@ -37,6 +37,7 @@ public class Classe implements Serializable {
 	public Classe() {
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	public Classe(String nomClasse, Set<Personne> personnes) {
 =======
@@ -45,6 +46,11 @@ public class Classe implements Serializable {
 		super();
 		this.idClasse = idClasse;
 >>>>>>> localRomain
+=======
+
+	public Classe(String nomClasse, Set<Personne> personnes) {
+
+>>>>>>> f4431345407cb4f45afc84bf214a0899ad06906a
 		this.nomClasse = nomClasse;
 		this.personnes = personnes;
 	}

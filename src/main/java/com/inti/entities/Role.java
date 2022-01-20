@@ -21,12 +21,16 @@ public class Role implements Serializable {
 	private String nomRole;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public Role() {
 	}
 
 	public Role(Long idRole, String nomRole) {
 		this.idRole = idRole;
 =======
+=======
+
+>>>>>>> f4431345407cb4f45afc84bf214a0899ad06906a
 //	@ManyToMany(fetch = FetchType.EAGER)
 //	@JoinTable(name = "Profil", joinColumns = @JoinColumn(name = "id_Role", referencedColumnName = "idRole"), inverseJoinColumns = @JoinColumn(name = "id_Personne", referencedColumnName = "idPersonne"))
 //	private Set<Personne> personnes = new HashSet<>();
@@ -44,7 +48,16 @@ public class Role implements Serializable {
 	}
 
 	public Role(String nomRole) {
+<<<<<<< HEAD
 >>>>>>> localRomain
+=======
+
+	public Role() {
+	}
+
+	public Role(Long idRole, String nomRole) {
+		this.idRole = idRole;
+>>>>>>> f4431345407cb4f45afc84bf214a0899ad06906a
 		this.nomRole = nomRole;
 	}
 
@@ -65,7 +78,11 @@ public class Role implements Serializable {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> f4431345407cb4f45afc84bf214a0899ad06906a
 //	public Set<Personne> getPersonnes() {
 //		return personnes;
 //	}
@@ -81,7 +98,10 @@ public class Role implements Serializable {
 	 * personnes; }
 	 */
 
+<<<<<<< HEAD
 >>>>>>> localRomain
+=======
+>>>>>>> f4431345407cb4f45afc84bf214a0899ad06906a
 	@Override
 	public String toString() {
 		return "Role [idRole=" + idRole + ", nomRole=" + nomRole + "]";

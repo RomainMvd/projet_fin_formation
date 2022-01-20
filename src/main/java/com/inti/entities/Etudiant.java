@@ -19,15 +19,22 @@ public class Etudiant extends Personne implements Serializable {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4431345407cb4f45afc84bf214a0899ad06906a
 	public Etudiant(String nomPersonne, String prenomPersonne, Date dateNaissancePersonne, String username,
 			String password, String email, boolean enabled, byte[] photoProfil, Set<Role> roles, Set<Cours> courss) {
 		super(nomPersonne, prenomPersonne, dateNaissancePersonne, username, password, email, enabled, photoProfil, roles,
 				courss);
+<<<<<<< HEAD
 =======
 	public Etudiant(String nomPersonne, String prenomPersonne, Date dateNaissance, String username, String password,
 			String email, Set<Cours> courss, Set<Role> roles) {
 		super(nomPersonne, prenomPersonne, dateNaissance, username, password, email, courss, roles);
 >>>>>>> localRomain
+=======
+>>>>>>> f4431345407cb4f45afc84bf214a0899ad06906a
 		// TODO Auto-generated constructor stub
 	}
 

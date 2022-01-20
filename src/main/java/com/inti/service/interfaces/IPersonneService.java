@@ -17,6 +17,10 @@ public interface IPersonneService {
 
 	Personne findByUsernameAndPassword(String username, String password);
 
+	
+	
+
+
 	Personne findByEmail(String email);
 
 }

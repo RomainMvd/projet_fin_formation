@@ -31,6 +31,7 @@ public class Examen implements Serializable {
 	private byte[] fichierReponseExamen;
 	
 	@ManyToOne
+
 	@JoinColumn(name="id_cours")
 	private Cours cours;
 	
@@ -50,17 +51,21 @@ public class Examen implements Serializable {
 		this.correction = correction;
 	}
 
+
 	public Examen(String nomExamen, String duree, Date dateExamen, byte[] fichierExamen, byte[] fichierReponseExamen) {
 		
 		this.nomExamen = nomExamen;
+		this.dateExamen = dateExamen;
 		this.duree = duree;
 		this.dateExamen = dateExamen;
 		this.fichierExamen = fichierExamen;
+
 		this.fichierReponseExamen = fichierReponseExamen;
 	}
 
 	public Examen() {
 		
+
 	}
 
 	public Long getIdExamen() {
@@ -79,13 +84,27 @@ public class Examen implements Serializable {
 		this.nomExamen = nomExamen;
 	}
 
+	public byte[] getFichierExamen() {
+		return fichierExamen;
+
 	public String getDuree() {
 		return duree;
+
 	}
 
 	public void setDuree(String duree) {
 		this.duree = duree;
 	}
+
+
+	
+
+	public Cours getCours() {
+		return cours;
+	}
+
+	public void setCours(Cours cours) {
+		this.cours = cours;
 
 	public Date getDateExamen() {
 		return dateExamen;
@@ -93,6 +112,7 @@ public class Examen implements Serializable {
 
 	public void setDateExamen(Date dateExamen) {
 		this.dateExamen = dateExamen;
+
 	}
 
 	public byte[] getFichierExamen() {
@@ -110,6 +130,25 @@ public class Examen implements Serializable {
 	public void setFichierReponseExamen(byte[] fichierReponseExamen) {
 		this.fichierReponseExamen = fichierReponseExamen;
 	}
+
+
+	public String getDuree() {
+		return duree;
+	}
+
+	public void setDuree(String duree) {
+		this.duree = duree;
+	}
+
+	@Override
+	public String toString() {
+		return "Examen [idExamen=" + idExamen + ", nomExamen=" + nomExamen + ", dateExamen=" + dateExamen + ", duree="
+				+ duree + ", fichierExamen=" + Arrays.toString(fichierExamen) + ", cours=" + cours + ", correction="
+				+ correction + "]";
+	}
+
+	
+
 
 	public Cours getCours() {
 		return cours;
@@ -134,9 +173,7 @@ public class Examen implements Serializable {
 				+ Arrays.toString(fichierReponseExamen) + ", cours=" + cours + ", correction=" + correction + "]";
 	}
 	
-	
-	
-	
+
 }
 /*
  * @Id

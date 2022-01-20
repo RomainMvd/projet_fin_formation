@@ -12,16 +12,15 @@ public class Distanciel extends Cours implements Serializable {
 
 	private String lienZoom;
 
-	public Distanciel() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 
 	public Distanciel(String nomCours, String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations,
 			Set<Examen> examens) {
 		super(nomCours, nomMatiere, nbrHeure, evaluations, examens);
 		// TODO Auto-generated constructor stub
 	}
+
+
 
 	public Distanciel(String nomCours, String nomMatiere, Double nbrHeure) {
 		super(nomCours, nomMatiere, nbrHeure);
