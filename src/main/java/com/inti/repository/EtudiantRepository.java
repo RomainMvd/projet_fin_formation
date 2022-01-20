@@ -21,7 +21,7 @@ public interface EtudiantRepository extends JpaRepository<Personne, Long> {
 
 	@Query(value = commandeSQL, nativeQuery = true)
 	List<Personne> listeEnseignants(String type);
-}
+
 	Etudiant findByEmail(String email);
 	
 	List<Etudiant> findByMoyenne(Double moyenne);

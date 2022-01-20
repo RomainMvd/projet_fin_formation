@@ -17,9 +17,6 @@ public class Presentiel extends Cours implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-
-	}
-
 	public Presentiel(String nomCours, String nomMatiere, Double nbrHeure) {
 		super(nomCours, nomMatiere, nbrHeure);
 		// TODO Auto-generated constructor stub
