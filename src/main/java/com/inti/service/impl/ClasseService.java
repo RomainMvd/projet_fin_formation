@@ -36,10 +36,8 @@ public class ClasseService implements IClasseService {
 	}
 
 	@Override
-
-	public Classe findByIdClasseAndNomClasse(Long idClasse, String nomClasse) {
-
-		return classeRepository.findByIdClasseAndNomClasse(idClasse, nomClasse);
+	public Classe findByNomClasse(String nomClasse) {
+		return classeRepository.findByNomClasse(nomClasse);
 	}
 
 }

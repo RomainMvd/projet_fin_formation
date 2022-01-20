@@ -46,4 +46,9 @@ public class PersonneService implements IPersonneService{
 		return personneRepository.findByUsernameAndPassword(username, password);
 	}
 
+	@Override
+	public Personne findByEmail(String email) {
+		return personneRepository.findByEmail(email);
+	}
+
 }
