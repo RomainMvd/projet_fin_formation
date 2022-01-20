@@ -93,7 +93,7 @@ public class EtudiantController {
 		currentEtudiant.setMoyenne(etudiant.getMoyenne());
 		currentEtudiant.setDateNaissance(etudiant.getDateNaissance());
 		currentEtudiant.setEmail(etudiant.getEmail());
-		currentEtudiant.setMatieres(etudiant.getMatieres());
+		currentEtudiant.setCourss(etudiant.getCourss());
 		currentEtudiant.setRoles(etudiant.getRoles());
 		currentEtudiant.setClasse(etudiant.getClasse());
 		return etudiantService.save(currentEtudiant);

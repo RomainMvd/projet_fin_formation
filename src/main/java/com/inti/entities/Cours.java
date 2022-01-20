@@ -15,13 +15,14 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
+
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
 @DiscriminatorColumn(name = "cours_type", discriminatorType = DiscriminatorType.STRING) 
 public class Cours implements Serializable {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCours;
+
 	private String nomCours;
 	private String nomMatiere; // A RETIRER ?
 	private Double nbrHeure;
@@ -94,13 +95,12 @@ public class Cours implements Serializable {
 		this.examens = examens;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Cours [idCours=" + idCours + ", nomCours=" + nomCours + ", nomMatiere=" + nomMatiere + ", nbrHeure="
 				+ nbrHeure + "]";
 	}
-	
-	
 }
 /*
  * @Id

@@ -38,6 +38,7 @@ public class Classe implements Serializable {
 	}
 
 	public Classe(String nomClasse, Set<Personne> personnes) {
+
 		this.nomClasse = nomClasse;
 		this.personnes = personnes;
 	}
