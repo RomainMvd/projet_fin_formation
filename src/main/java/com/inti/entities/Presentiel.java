@@ -15,12 +15,12 @@ public class Presentiel extends Cours implements Serializable{
 	}
 
 
-	public Presentiel(String chapitre, int nbrHeure, byte [] fichierCours) {
+	public Presentiel(String chapitre, Long nbrHeure, byte [] fichierCours) {
 		super(chapitre, nbrHeure, fichierCours);
 	}
 
 
-	public Presentiel(String chapitre, int nbrHeure, byte [] fichierCours, String salle) {
+	public Presentiel(String chapitre, Long nbrHeure, byte [] fichierCours, String salle) {
 		super(chapitre, nbrHeure, fichierCours);
 		this.salle = salle;
 	}

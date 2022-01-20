@@ -31,7 +31,7 @@ public class CoursController {
 
 	@RequestMapping(value = "cours", method = RequestMethod.POST)
 	public String saveCours(@RequestParam(name = "chapitre", required = false) String chapitre,
-			@RequestParam(name = "nbrHeure", required = false) int nbrHeure,
+			@RequestParam(name = "nbrHeure", required = false) Long nbrHeure,
 			@RequestParam(name = "fichierCours", required = false) MultipartFile fichierCours) {
 		try {
 			Cours currentCours = new Cours();
