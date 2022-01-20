@@ -24,10 +24,9 @@ public class Cours implements Serializable {
 
 	@Lob
 	private byte[] fichierCours;
-
-	@ManyToOne
-	private Matiere matiere;
-
+	@OneToMany(mappedBy = "cours")
+	private List<Examen> exmaens = new ArrayList<>();
+	
 	@OneToMany(mappedBy = "cours")
 	private List<Evaluation> evaluation = new ArrayList<>();
 
@@ -79,14 +78,6 @@ public class Cours implements Serializable {
 
 	public void setFichierCours(byte[] fichierCours) {
 		this.fichierCours = fichierCours;
-	}
-
-	public Matiere getMatiere() {
-		return matiere;
-	}
-
-	public void setMatiere(Matiere matiere) {
-		this.matiere = matiere;
 	}
 
 	@Override

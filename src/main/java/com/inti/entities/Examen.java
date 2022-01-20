@@ -29,11 +29,10 @@ public class Examen implements Serializable {
 	private byte[] fichierExamen;
 
 	@ManyToOne
-	@JoinColumn(name = "id_matiere")
-	private Matiere matiere;
+	@JoinColumn(name = "id_cours")
+	private Cours cours;
 
-
-	@OneToOne(mappedBy= "examen")
+	@OneToOne(mappedBy = "examen")
 	@JoinColumn(name = "id_correction")
 	private Correction correction;
 
@@ -41,14 +40,12 @@ public class Examen implements Serializable {
 
 	}
 
-
-	public Examen(Long idExamen, String nomExamen, String duree, byte[] fichierExamen, Matiere matiere) {
+	public Examen(String nomExamen, Date dateExamen, String duree, byte[] fichierExamen) {
 		super();
-		this.idExamen = idExamen;
 		this.nomExamen = nomExamen;
+		this.dateExamen = dateExamen;
 		this.duree = duree;
 		this.fichierExamen = fichierExamen;
-		this.matiere = matiere;
 	}
 
 	public Long getIdExamen() {
@@ -67,7 +64,6 @@ public class Examen implements Serializable {
 		this.nomExamen = nomExamen;
 	}
 
-
 	public byte[] getFichierExamen() {
 		return fichierExamen;
 	}
@@ -76,12 +72,14 @@ public class Examen implements Serializable {
 		this.fichierExamen = fichierExamen;
 	}
 
-	public Matiere getMatiere() {
-		return matiere;
+	
+
+	public Cours getCours() {
+		return cours;
 	}
 
-	public void setMatiere(Matiere matiere) {
-		this.matiere = matiere;
+	public void setCours(Cours cours) {
+		this.cours = cours;
 	}
 
 	public Correction getCorrection() {
@@ -100,22 +98,21 @@ public class Examen implements Serializable {
 		this.dateExamen = dateExamen;
 	}
 
-
-
 	public String getDuree() {
 		return duree;
 	}
-
 
 	public void setDuree(String duree) {
 		this.duree = duree;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Examen [idExamen=" + idExamen + ", nomExamen=" + nomExamen + ", duree=" + duree + ", fichierExamen="
-				+ Arrays.toString(fichierExamen) + ", matiere=" + matiere + "]";
+		return "Examen [idExamen=" + idExamen + ", nomExamen=" + nomExamen + ", dateExamen=" + dateExamen + ", duree="
+				+ duree + ", fichierExamen=" + Arrays.toString(fichierExamen) + ", cours=" + cours + ", correction="
+				+ correction + "]";
 	}
+
+	
 
 }
