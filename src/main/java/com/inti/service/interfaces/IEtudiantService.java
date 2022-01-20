@@ -17,6 +17,15 @@ public interface IEtudiantService {
 	Etudiant findByUsername(String username);
 
 	Etudiant findByUsernameAndPassword(String username, String password);
+
 	
 	List<Personne> findByRole(String type);
+
+
+	Etudiant findByEmail(String email);
+
+	List<Etudiant> findByMoyenne(Double moyenne);
+
+	List<Etudiant> findByEnabled(boolean enabled);
+
 }

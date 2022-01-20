@@ -13,5 +13,5 @@ public interface ICorrectionService {
 
 	void delete(Long idCorrection);
 
-	Correction findByIdCorrectionAndNomMatiere(Long idCorrection, String nomMatiere);
+	List<Correction> findByNomMatiere(String nomMatiere);
 }

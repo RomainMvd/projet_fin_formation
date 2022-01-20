@@ -35,8 +35,10 @@ public class RoleService implements IRoleService {
 	}
 
 	@Override
-	public Role findByIdRoleAndNomRole(Long idRole, String nomRole) {
-		return roleRepository.findByIdRoleAndNomRole(idRole, nomRole);
+	public Role findByNomRole(String nomRole) {
+		return roleRepository.findByNomRole(nomRole);
 	}
+
+
 
 }

@@ -1,46 +1,49 @@
 package com.inti.entities;
 
-
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Cours implements Serializable{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
+@DiscriminatorColumn(name = "cours_type", discriminatorType = DiscriminatorType.STRING) 
+public class Cours implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCours;
-	private String chapitre;
-	private Long nbrHeure;
-	
-	@Lob
-	private byte [] fichierCours;
-	
-	@ManyToOne
-	private Matiere matiere;
+
 	
 	@OneToMany(mappedBy = "cours")
-	private List<Evaluation> evaluation = new ArrayList<>();
+	private Set<Evaluation> evaluations = new HashSet<>();
 	
-	public Cours () {
-		
+	@OneToMany(mappedBy = "cours")
+	private Set<Examen> examens = new HashSet<>();
+
+	public Cours(String nomCours, String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations,
+			Set<Examen> examens) {
+		this.nomCours = nomCours;
+		this.nomMatiere = nomMatiere;
+		this.nbrHeure = nbrHeure;
+		this.evaluations = evaluations;
+		this.examens = examens;
 	}
 
-	public Cours(String chapitre, Long nbrHeure, byte[] fichierCours) {
-		this.chapitre = chapitre;
+
 		this.nbrHeure = nbrHeure;
-		this.fichierCours = fichierCours;
+	}
+
+	public Cours() {
 	}
 
 	public Long getIdCours() {
@@ -51,44 +54,99 @@ public class Cours implements Serializable{
 		this.idCours = idCours;
 	}
 
-	public String getChapitre() {
-		return chapitre;
+	public String getNomCours() {
+		return nomCours;
 	}
 
-	public void setChapitre(String chapitre) {
-		this.chapitre = chapitre;
+	public void setNomCours(String nomCours) {
+		this.nomCours = nomCours;
 	}
 
-	public Long getNbrHeure() {
+
+	public String getNomMatiere() {
+		return nomMatiere;
+	}
+
+	public void setNomMatiere(String nomMatiere) {
+		this.nomMatiere = nomMatiere;
+	}
+
+	public Double getNbrHeure() {
 		return nbrHeure;
+
 	}
 
-	public void setNbrHeure(Long nbrHeure) {
+	public void setNbrHeure(Double nbrHeure) {
 		this.nbrHeure = nbrHeure;
 	}
 
-	public byte[] getFichierCours() {
-		return fichierCours;
+	public void setEvaluations(Set<Evaluation> evaluations) {
+		this.evaluations = evaluations;
 	}
 
-	public void setFichierCours(byte[] fichierCours) {
-		this.fichierCours = fichierCours;
+	public Set<Examen> getExamens() {
+		return examens;
 	}
 
-	public Matiere getMatiere() {
-		return matiere;
-	}
-
-	public void setMatiere(Matiere matiere) {
-		this.matiere = matiere;
+	public void setExamens(Set<Examen> examens) {
+		this.examens = examens;
 	}
 
 	@Override
 	public String toString() {
-		return "Cours [idCours=" + idCours + ", chapitre=" + chapitre + ", nbrHeure=" + nbrHeure + ", fichierCours="
-				+ Arrays.toString(fichierCours) + "]";
+		return "Cours [idCours=" + idCours + ", nomCours=" + nomCours + ", nomMatiere=" + nomMatiere + ", nbrHeure="
+				+ nbrHeure + "]";
 	}
 	
 	
-
 }
+/*
+ * @Id
+ * 
+ * @GeneratedValue(strategy = GenerationType.IDENTITY) private Long idCours;
+ * private String chapitre; private Long nbrHeure;
+ * 
+ * @Lob private byte [] fichierCours;
+ * 
+ * @ManyToOne private Matiere matiere;
+ * 
+ * @OneToMany(mappedBy = "cours") private List<Evaluation> evaluation = new
+ * ArrayList<>();
+ * 
+ * public Cours () {
+ * 
+ * }
+ * 
+ * public Cours(String chapitre, Long nbrHeure, byte[] fichierCours) {
+ * this.chapitre = chapitre; this.nbrHeure = nbrHeure; this.fichierCours =
+ * fichierCours; }
+ * 
+ * public Long getIdCours() { return idCours; }
+ * 
+ * public void setIdCours(Long idCours) { this.idCours = idCours; }
+ * 
+ * public String getChapitre() { return chapitre; }
+ * 
+ * public void setChapitre(String chapitre) { this.chapitre = chapitre; }
+ * 
+ * public Long getNbrHeure() { return nbrHeure; }
+ * 
+ * public void setNbrHeure(Long nbrHeure) { this.nbrHeure = nbrHeure; }
+ * 
+ * public byte[] getFichierCours() { return fichierCours; }
+ * 
+ * public void setFichierCours(byte[] fichierCours) { this.fichierCours =
+ * fichierCours; }
+ * 
+ * public Matiere getMatiere() { return matiere; }
+ * 
+ * public void setMatiere(Matiere matiere) { this.matiere = matiere; }
+ * 
+ * @Override public String toString() { return "Cours [idCours=" + idCours +
+ * ", chapitre=" + chapitre + ", nbrHeure=" + nbrHeure + ", fichierCours=" +
+ * Arrays.toString(fichierCours) + "]"; }
+ * 
+ * 
+ * 
+ * }
+ */

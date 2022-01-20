@@ -9,4 +9,5 @@ import com.inti.entities.Personne;
 public interface PersonneRepository extends JpaRepository<Personne, Long>{
 	Personne findByUsername(String username);
 	Personne findByUsernameAndPassword(String username, String password);
+	Personne findByEmail(String email);
 }
