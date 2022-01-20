@@ -18,6 +18,7 @@ public class Etudiant extends Personne implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Etudiant(String nomPersonne, String prenomPersonne, Date dateNaissancePersonne, String username,
 			String password, String email, boolean enabled, byte[] photoProfil, Set<Role> roles, Set<Cours> courss) {
 		super(nomPersonne, prenomPersonne, dateNaissancePersonne, username, password, email, enabled, photoProfil, roles,

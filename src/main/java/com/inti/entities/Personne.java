@@ -196,8 +196,8 @@ public class Personne implements Serializable {
 	private boolean enabled = true;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "PersonneMatiere", joinColumns = @JoinColumn(name = "id_personne", referencedColumnName = "idPersonne"), inverseJoinColumns = @JoinColumn(name = "id_matiere", referencedColumnName = "idMatiere"))
-	private Set<Matiere> matieres = new HashSet<>();
+	@JoinTable(name = "Lecture", joinColumns = @JoinColumn(name = "id_personne", referencedColumnName = "idPersonne"), inverseJoinColumns = @JoinColumn(name = "id_matiere", referencedColumnName = "idMatiere"))
+	private Set<Cours> courss = new HashSet<>();
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "Profil", joinColumns = @JoinColumn(name = "id_personnee", referencedColumnName = "idPersonne"), inverseJoinColumns = @JoinColumn(name = "id_rolee", referencedColumnName = "idRole"))
@@ -221,16 +221,16 @@ public class Personne implements Serializable {
 	}
 
 	public Personne(String nomPersonne, String prenomPersonne, Date dateNaissance, String username, String password,
-			String email, Set<Matiere> matieres, Set<Role> roles, Classe classe) {
+			String email, Set<Cours> courss, Set<Role> roles) {
+		super();
 		this.nomPersonne = nomPersonne;
 		this.prenomPersonne = prenomPersonne;
 		this.dateNaissance = dateNaissance;
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.matieres = matieres;
+		this.courss = courss;
 		this.roles = roles;
-		this.classe = classe;
 	}
 
 	public Long getIdPersonne() {
@@ -289,12 +289,20 @@ public class Personne implements Serializable {
 		this.email = email;
 	}
 
-	public Set<Matiere> getMatieres() {
-		return matieres;
+	public boolean isEnabled() {
+		return enabled;
 	}
 
-	public void setMatieres(Set<Matiere> matieres) {
-		this.matieres = matieres;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Set<Cours> getCourss() {
+		return courss;
+	}
+
+	public void setCourss(Set<Cours> courss) {
+		this.courss = courss;
 	}
 
 	public Set<Role> getRoles() {
