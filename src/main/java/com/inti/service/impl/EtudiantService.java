@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inti.entities.Etudiant;
+import com.inti.entities.Personne;
 import com.inti.repository.EtudiantRepository;
 import com.inti.service.interfaces.IEtudiantService;
 
@@ -16,13 +17,13 @@ public class EtudiantService implements IEtudiantService{
 	EtudiantRepository etudiantRepository;
 	
 	@Override
-	public List<Etudiant> findAll() {
+	public List<Personne> findAll() {
 		return etudiantRepository.findAll();
 	}
 
 	@Override
 	public Etudiant findOne(Long idEtudiant) {
-		return etudiantRepository.findById(idEtudiant).get();
+		return (Etudiant) etudiantRepository.findById(idEtudiant).get();
 	}
 
 	@Override
@@ -45,5 +46,8 @@ public class EtudiantService implements IEtudiantService{
 	public Etudiant findByUsernameAndPassword(String username, String password) {
 		return etudiantRepository.findByUsernameAndPassword(username, password);
 	}
-
+	@Override
+	public List<Personne> findByRole(String type) {
+		return etudiantRepository.listeEnseignants(type);
+	}
 }

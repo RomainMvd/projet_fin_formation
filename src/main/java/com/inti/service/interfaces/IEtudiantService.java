@@ -3,9 +3,10 @@ package com.inti.service.interfaces;
 import java.util.List;
 
 import com.inti.entities.Etudiant;
+import com.inti.entities.Personne;
 
 public interface IEtudiantService {
-	List<Etudiant> findAll();
+	List<Personne> findAll();
 
 	Etudiant findOne(Long idEtudiant);
 
@@ -16,4 +17,6 @@ public interface IEtudiantService {
 	Etudiant findByUsername(String username);
 
 	Etudiant findByUsernameAndPassword(String username, String password);
+	
+	List<Personne> findByRole(String type);
 }

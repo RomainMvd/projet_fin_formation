@@ -16,4 +16,6 @@ public interface IPersonneService {
 	Personne findByUsername(String username);
 
 	Personne findByUsernameAndPassword(String username, String password);
+	
+	
 }
