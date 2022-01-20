@@ -15,13 +15,19 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
+<<<<<<< HEAD
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
 @DiscriminatorColumn(name = "cours_type", discriminatorType = DiscriminatorType.STRING) 
 public class Cours implements Serializable {
 	
+=======
+public class Cours implements Serializable {
+
+>>>>>>> localRomain
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCours;
+<<<<<<< HEAD
 	private String nomCours;
 	private String nomMatiere; // A RETIRER ?
 	private Double nbrHeure;
@@ -39,6 +45,22 @@ public class Cours implements Serializable {
 		this.nbrHeure = nbrHeure;
 		this.evaluations = evaluations;
 		this.examens = examens;
+=======
+	private String chapitre;
+	private Long nbrHeure;
+
+	@Lob
+	private byte[] fichierCours;
+
+	@ManyToOne
+	private Matiere matiere;
+
+	@OneToMany(mappedBy = "cours")
+	private List<Evaluation> evaluation = new ArrayList<>();
+
+	public Cours() {
+
+>>>>>>> localRomain
 	}
 
 	public Cours(String nomCours, String nomMatiere, Double nbrHeure) {
@@ -99,8 +121,12 @@ public class Cours implements Serializable {
 		return "Cours [idCours=" + idCours + ", nomCours=" + nomCours + ", nomMatiere=" + nomMatiere + ", nbrHeure="
 				+ nbrHeure + "]";
 	}
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> localRomain
 }
 /*
  * @Id

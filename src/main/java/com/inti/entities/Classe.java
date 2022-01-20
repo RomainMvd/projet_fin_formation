@@ -36,8 +36,15 @@ public class Classe implements Serializable {
 	
 	public Classe() {
 	}
+<<<<<<< HEAD
 
 	public Classe(String nomClasse, Set<Personne> personnes) {
+=======
+	
+	public Classe(Long idClasse, String nomClasse) {
+		super();
+		this.idClasse = idClasse;
+>>>>>>> localRomain
 		this.nomClasse = nomClasse;
 		this.personnes = personnes;
 	}
