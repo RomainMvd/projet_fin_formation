@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.entities.Enseignant;
 import com.inti.entities.Etudiant;
+import com.inti.entities.Personne;
 import com.inti.service.interfaces.IEtudiantService;
 
 @RestController
@@ -30,20 +32,26 @@ public class EtudiantController {
 	
 	// BASIC FUNCTION
 	
-	@GetMapping("/etudiants")
-	public List<Etudiant> findAll() {
+	/*@GetMapping("/etudiants")
+	public List<Personne> findAll() {
 		return etudiantService.findAll();
 	}
-	
+	/*
 	@GetMapping("/etudiants/{idE}")
 	public Etudiant findOne(@PathVariable("idE") Long idEtudiant) {
 		return etudiantService.findOne(idEtudiant);
-	}
-	
+	}*/
+	/*
 	@GetMapping("/etudiants/{username}")
 	public Etudiant findOne(@PathVariable("username") String username) {
 		return etudiantService.findByUsername(username);
+	}*/
+	
+	@GetMapping("/etudiants/{abc}")
+	public List<Personne> findByRole(@PathVariable("abc") String type){
+		return etudiantService.findByRole(type);
 	}
+	
 	
 	/*
 	@PostMapping("/etudiants")
