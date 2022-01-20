@@ -23,7 +23,11 @@ public class Examen implements Serializable {
 	private String nomExamen;
 	@Temporal(TemporalType.DATE)
 	private Date dateExamen;
+<<<<<<< HEAD
 	private Double duree;
+=======
+	private String duree;
+>>>>>>> 26f14e2764a665322accf652aa09c2b9f198d1a6
 	@Lob
 	private byte[] fichierExamen;
 
@@ -40,7 +44,11 @@ public class Examen implements Serializable {
 
 	}
 
+<<<<<<< HEAD
 	public Examen(Long idExamen, String nomExamen, Double duree, byte[] fichierExamen, Matiere matiere) {
+=======
+	public Examen(Long idExamen, String nomExamen, String duree, byte[] fichierExamen, Matiere matiere) {
+>>>>>>> 26f14e2764a665322accf652aa09c2b9f198d1a6
 		super();
 		this.idExamen = idExamen;
 		this.nomExamen = nomExamen;
@@ -65,13 +73,6 @@ public class Examen implements Serializable {
 		this.nomExamen = nomExamen;
 	}
 
-	public double getDuree() {
-		return duree;
-	}
-
-	public void setDuree(double duree) {
-		this.duree = duree;
-	}
 
 	public byte[] getFichierExamen() {
 		return fichierExamen;
@@ -105,7 +106,15 @@ public class Examen implements Serializable {
 		this.dateExamen = dateExamen;
 	}
 
+<<<<<<< HEAD
 	public void setDuree(Double duree) {
+=======
+	public String getDuree() {
+		return duree;
+	}
+
+	public void setDuree(String duree) {
+>>>>>>> 26f14e2764a665322accf652aa09c2b9f198d1a6
 		this.duree = duree;
 	}
 
