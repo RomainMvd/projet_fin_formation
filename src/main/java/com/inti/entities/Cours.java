@@ -82,10 +82,6 @@ public class Cours implements Serializable {
 		this.nbrHeure = nbrHeure;
 	}
 
-	public Set<Evaluation> getEvaluations() {
-		return evaluations;
-	}
-
 	public void setEvaluations(Set<Evaluation> evaluations) {
 		this.evaluations = evaluations;
 	}
