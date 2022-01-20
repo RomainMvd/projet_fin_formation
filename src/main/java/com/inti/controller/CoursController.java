@@ -1,6 +1,5 @@
 package com.inti.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.inti.entities.Cours;
-import com.inti.entities.Evaluation;
-import com.inti.entities.Examen;
 import com.inti.service.interfaces.ICoursService;
 
 @RestController
