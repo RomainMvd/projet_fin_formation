@@ -93,7 +93,7 @@ public class EnseignantController {
 		currentEnseignant.setSalaire(enseignant.getSalaire());
 		currentEnseignant.setDateNaissance(enseignant.getDateNaissance());
 		currentEnseignant.setEmail(enseignant.getEmail());
-		currentEnseignant.setMatieres(enseignant.getMatieres());
+		currentEnseignant.setCourss(enseignant.getCourss());
 		currentEnseignant.setRoles(enseignant.getRoles());
 		currentEnseignant.setClasse(enseignant.getClasse());
 		return enseignantService.save(currentEnseignant);

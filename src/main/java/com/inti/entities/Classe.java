@@ -22,7 +22,7 @@ public class Classe implements Serializable {
 
 	public Classe() {
 	}
-
+	
 	public Classe(Long idClasse, String nomClasse) {
 		super();
 		this.idClasse = idClasse;

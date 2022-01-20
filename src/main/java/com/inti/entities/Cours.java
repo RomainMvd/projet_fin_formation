@@ -1,7 +1,5 @@
 package com.inti.entities;
 
-
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,25 +14,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Cours implements Serializable{
-	
+public class Cours implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCours;
 	private String chapitre;
 	private Long nbrHeure;
-	
+
 	@Lob
-	private byte [] fichierCours;
-	
+	private byte[] fichierCours;
+
 	@ManyToOne
 	private Matiere matiere;
-	
+
 	@OneToMany(mappedBy = "cours")
 	private List<Evaluation> evaluation = new ArrayList<>();
-	
-	public Cours () {
-		
+
+	public Cours() {
+
 	}
 
 	public Cours(String chapitre, Long nbrHeure, byte[] fichierCours) {
@@ -96,7 +94,5 @@ public class Cours implements Serializable{
 		return "Cours [idCours=" + idCours + ", chapitre=" + chapitre + ", nbrHeure=" + nbrHeure + ", fichierCours="
 				+ Arrays.toString(fichierCours) + "]";
 	}
-	
-	
 
 }
