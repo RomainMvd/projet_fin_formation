@@ -28,17 +28,18 @@ public class CoursController {
 	}
 
 	@RequestMapping(value = "cours/{chap}", method = RequestMethod.GET)
-	public Cours findByNomAndPrenom(@PathVariable("chap") String chapitre) {
-		return coursServ.findByChapitre(chapitre);
+	public Cours findByNomCours(@PathVariable("chap") String nomCours) {
+		return coursServ.findByNomCours(nomCours);
 	}
 
 	@RequestMapping(value = "cours", method = RequestMethod.POST)
-	public String saveCours(@RequestParam(name = "chapitre", required = false) String chapitre,
-			@RequestParam(name = "nbrHeure", required = false) Long nbrHeure,
+	public String saveCours(
+			@RequestParam(name = "nomCours", required = false) String nomCours,
+			@RequestParam(name = "nbrHeure", required = false) Double nbrHeure,
 			@RequestParam(name = "fichierCours", required = false) MultipartFile fichierCours) {
 		try {
 			Cours currentCours = new Cours();
-			currentCours.setChapitre(chapitre);
+			currentCours.setNomCours(nomCours);
 			currentCours.setNbrHeure(nbrHeure);
 			if (fichierCours != null) {
 				currentCours.setFichierCours(fichierCours.getBytes());
@@ -59,10 +60,15 @@ public class CoursController {
 	@RequestMapping(value = "cours/{idC}", method = RequestMethod.PUT)
 	public Cours updateEmp(@PathVariable("idC") Long idCours, @RequestBody Cours cours) {
 		Cours currentCours = coursServ.findOne(idCours);
-		currentCours.setChapitre(cours.getChapitre());
+		currentCours.setNomCours(cours.getNomCours());
 		currentCours.setNbrHeure(cours.getNbrHeure());
 		currentCours.setFichierCours(cours.getFichierCours());
 		return coursServ.save(currentCours);
+
+	}
+	
+
 	}*/
+
 
 }

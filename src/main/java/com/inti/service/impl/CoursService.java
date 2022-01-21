@@ -12,8 +12,8 @@ import com.inti.repository.CoursRepository;
 import com.inti.service.interfaces.ICoursService;
 
 @Service
-public class CoursService implements ICoursService{
-	
+public class CoursService implements ICoursService {
+
 	@Autowired
 	CoursRepository coursRep;
 
@@ -41,17 +41,18 @@ public class CoursService implements ICoursService{
 	public Cours findByNomCours(String nomCours) {
 		return coursRep.findByNomCours(nomCours);
 	}
-/*
+
 	@Override
-	public List<Cours> findByNomMatiere(String nomMatiere) {
+	public Set<Cours> findByNomMatiere(String nomMatiere) {
 		return coursRep.findByNomMatiere(nomMatiere);
 	}
 
 	@Override
-	public List<Cours> findByExamens(Set<Examen> examens) {
+	public Set<Cours> findByExamens(Set<Examen> examens) {
+
 		return coursRep.findByExamens(examens);
-	}*/
-	
-	
+
+	}
+
 
 }
