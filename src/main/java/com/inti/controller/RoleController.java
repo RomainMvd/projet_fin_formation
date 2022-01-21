@@ -28,11 +28,11 @@ public class RoleController {
 	public Role findOne(@PathVariable("idR") Long idRole) {
 		return roleService.findOne(idRole);
 	}
-
+/*
 	@RequestMapping(value = "roles/{idR}/{nomRole}", method = RequestMethod.GET)
 	public Role findByIdAndNom(@PathVariable("idR") Long idRole, @PathVariable("nomRole") String nomRole) {
 		return roleService.findByIdRoleAndNomRole(idRole, nomRole);
-	}
+	}*/
 
 	@RequestMapping(value = "roles", method = RequestMethod.POST)
 	public Role saveRole(@RequestBody Role role) {

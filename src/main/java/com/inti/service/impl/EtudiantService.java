@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.inti.entities.Etudiant;
 import com.inti.entities.Personne;
 import com.inti.repository.EtudiantRepository;
+import com.inti.repository.PersonneRepository;
 import com.inti.service.interfaces.IEtudiantService;
+import com.inti.service.interfaces.IPersonneService;
 
 @Service
 public class EtudiantService implements IEtudiantService {
@@ -23,7 +25,7 @@ public class EtudiantService implements IEtudiantService {
 
 	@Override
 	public Etudiant findOne(Long idEtudiant) {
-		return (Etudiant) etudiantRepository.findById(idEtudiant).get();
+		return etudiantRepository.findById(idEtudiant).get();
 	}
 
 	@Override
@@ -47,10 +49,6 @@ public class EtudiantService implements IEtudiantService {
 		return etudiantRepository.findByUsernameAndPassword(username, password);
 	}
 
-	@Override
-	public List<Personne> findByRole(String type) {
-		return etudiantRepository.listeEnseignants(type);
-	}
 
 	@Override
 	public Etudiant findByEmail(String email) {
@@ -66,5 +64,6 @@ public class EtudiantService implements IEtudiantService {
 	public List<Etudiant> findByEnabled(boolean enabled) {
 		return etudiantRepository.findByEnabled(enabled);
 	}
+	
 
 }

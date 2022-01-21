@@ -25,7 +25,7 @@ public class EnseignantController {
 
 	@Autowired
 	IEnseignantService enseignantService;
-	
+	/*
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
@@ -68,7 +68,7 @@ public class EnseignantController {
 			return "Error";
 		}
 	}
-	*/
+	
 	
 	@PostMapping("/enseignants")
 	public Enseignant saveEnseignant(@RequestBody Enseignant enseignant) {
@@ -102,6 +102,8 @@ public class EnseignantController {
 	@DeleteMapping("/enseignants/{idE}")
 	public void deleteEnseignant(@PathVariable("idE") Long idEnseignant) {
 		enseignantService.delete(idEnseignant);
+
 	}
-	
+	*/
+
 }

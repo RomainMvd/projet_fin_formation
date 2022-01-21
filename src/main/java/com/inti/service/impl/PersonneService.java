@@ -52,5 +52,11 @@ public class PersonneService implements IPersonneService{
 		return personneRepository.findByEmail(email);
 	}
 
+	@Override
+	public List<Personne> findByRole(String type) {
+		
+		return personneRepository.listeEnseignants(type);
+	}
+
 
 }

@@ -36,7 +36,7 @@ public class Role implements Serializable {
 	 * "id_Personne", referencedColumnName = "idPersonne")) private Set<Personne>
 	 * personnes = new HashSet<>();
 	 */
-	
+
 
 	public Role(Long idRole, String nomRole) {
 		this.idRole = idRole;

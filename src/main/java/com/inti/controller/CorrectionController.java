@@ -24,7 +24,7 @@ public class CorrectionController {
 
 	@Autowired
 	ICorrectionService correctionService;
-
+/*
 	@RequestMapping(value = "corrections", method = RequestMethod.GET)
 	public List<Correction> findAll() {
 		return correctionService.findAll();
@@ -75,5 +75,5 @@ public class CorrectionController {
 	@RequestMapping(value = "corrections/{idCorrection}", method = RequestMethod.DELETE)
 	public void deleteCorrection(@PathVariable("idCorrection") Long idCorrection) {
 		correctionService.delete(idCorrection);
-	}
+	}*/
 }

@@ -82,6 +82,7 @@ public class Examen implements Serializable {
 		this.nomExamen = nomExamen;
 	}
 
+
 	public String getDuree() {
 		return duree;
 	}
@@ -89,6 +90,7 @@ public class Examen implements Serializable {
 	public void setDuree(String duree) {
 		this.duree = duree;
 	}
+
 
 	public Date getDateExamen() {
 		return dateExamen;
@@ -130,12 +132,7 @@ public class Examen implements Serializable {
 		this.correction = correction;
 	}
 
-	@Override
-	public String toString() {
-		return "Examen [idExamen=" + idExamen + ", nomExamen=" + nomExamen + ", duree=" + duree + ", dateExamen="
-				+ dateExamen + ", fichierExamen=" + Arrays.toString(fichierExamen) + ", fichierReponseExamen="
-				+ Arrays.toString(fichierReponseExamen) + ", cours=" + cours + ", correction=" + correction + "]";
-	}
+
 
 }
 /*

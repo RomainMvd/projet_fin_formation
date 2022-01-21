@@ -11,16 +11,11 @@ import com.inti.entities.Personne;
 
 
 @Repository
-public interface EtudiantRepository extends JpaRepository<Personne, Long> {
+public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
 	Etudiant findByUsername(String username);
 
 	Etudiant findByUsernameAndPassword(String username, String password);
 
-
-	public String commandeSQL = "SELECT * FROM personne WHERE type=?1";
-
-	@Query(value = commandeSQL, nativeQuery = true)
-	List<Personne> listeEnseignants(String type);
 
 	Etudiant findByEmail(String email);
 	

@@ -42,11 +42,13 @@ public class Cours implements Serializable {
 		this.nbrHeure = nbrHeure;
 		this.evaluations = evaluations;
 		this.examens = examens;
+
 	}
 
 	public Cours(String nomCours, String nomMatiere, Double nbrHeure) {
 		this.nomCours = nomCours;
 		this.nomMatiere = nomMatiere;
+
 		this.nbrHeure = nbrHeure;
 	}
 
