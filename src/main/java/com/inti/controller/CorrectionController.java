@@ -35,22 +35,23 @@ public class CorrectionController {
 		return correctionService.findOne(idCorrection);
 	}
 
-	@RequestMapping(value = "corrections/{idC}/{nomMatiere}", method = RequestMethod.GET)
-	public Correction findByIdCorrectionAndNomMatiere(@PathVariable("idC") Long idCorrection,
-			@PathVariable("nomMatiere") String nomMatiere) {
-		return correctionService.findByIdCorrectionAndNomMatiere(idCorrection, nomMatiere);
+	@RequestMapping(value = "corrections/{nomMatiere}", method = RequestMethod.GET)
+	public Correction findByNomMatiere(@PathVariable("nomMatiere") String nomMatiere) {
+		return (Correction) correctionService.findByNomMatiere(nomMatiere); 
+		// Ne marchait pas sans le cast, a voir si ca pose des pb
 	}
 
 	@PostMapping("/corrections")
-	public String saveExamen(@RequestParam(name = "noteExamen", required = false) Long noteExamen,
+	public String saveExamen(
+			@RequestParam(name = "noteExamen", required = false) Double noteExamen,
+            @RequestParam(name = "commentaireEnseignant", required = false) String commentaireEnseignant,
             @RequestParam(name = "nomMatiere", required = false) String nomMatiere,
-            @RequestParam(name = "commentaireProfesseur", required = false) String commentaireProfesseur,
             @RequestParam(name = "fichierCorrection", required = false) MultipartFile fichierCorrection) {
         try {
             Correction currentCorr = new Correction();
             currentCorr.setNoteExamen(noteExamen);
             currentCorr.setNomMatiere(nomMatiere);
-            currentCorr.setCommentaireProfesseur(commentaireProfesseur);
+            currentCorr.setCommentaireEnseignant(commentaireEnseignant);
              if(fichierCorrection != null) {
                  currentCorr.setFichierCorrection(fichierCorrection.getBytes());
              }
@@ -67,7 +68,7 @@ public class CorrectionController {
 		Correction currentCorrection = correctionService.findOne(idCorrection);
 		currentCorrection.setNoteExamen(correction.getNoteExamen());
 		currentCorrection.setNomMatiere(correction.getNomMatiere());
-		currentCorrection.setCommentaireProfesseur(correction.getCommentaireProfesseur());
+		currentCorrection.setCommentaireEnseignant(correction.getCommentaireEnseignant());
 		return correctionService.save(currentCorrection);
 	}
 

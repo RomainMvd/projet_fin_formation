@@ -9,7 +9,7 @@ import com.inti.entities.Correction;
 
 @Repository
 public interface CorrectionRepository extends JpaRepository<Correction, Long> {
-	
-	List<Correction> findByNomMatiere(String nomMatiere);
+
+    List<Correction> findByNomMatiere(String nomMatiere);
 
 }
