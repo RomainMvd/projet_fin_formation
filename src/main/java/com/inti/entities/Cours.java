@@ -23,7 +23,7 @@ public class Cours implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCours;
 	private String nomCours;
-	private String nomMatiere; // A RETIRER ?
+	private String nomMatiere;
 	private Double nbrHeure;
 
 	@OneToMany(mappedBy = "cours")
@@ -39,11 +39,13 @@ public class Cours implements Serializable {
 		this.nbrHeure = nbrHeure;
 		this.evaluations = evaluations;
 		this.examens = examens;
+
 	}
 
 	public Cours(String nomCours, String nomMatiere, Double nbrHeure) {
 		this.nomCours = nomCours;
 		this.nomMatiere = nomMatiere;
+
 		this.nbrHeure = nbrHeure;
 	}
 
