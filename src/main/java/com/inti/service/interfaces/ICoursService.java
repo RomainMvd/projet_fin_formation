@@ -18,9 +18,9 @@ public interface ICoursService {
 
 	Cours findByNomCours(String nomCours);
 
-	// PLUS
+	/*// PLUS
 	List<Cours> findByNomMatiere(String nomMatiere);
 
 	List<Cours> findByExamens(Set<Examen> examens);
-
+*/
 }

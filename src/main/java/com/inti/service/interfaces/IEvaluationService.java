@@ -2,6 +2,7 @@ package com.inti.service.interfaces;
 
 import java.util.List;
 
+import com.inti.entities.Cours;
 import com.inti.entities.Evaluation;
 
 public interface IEvaluationService {
@@ -14,5 +15,5 @@ public interface IEvaluationService {
 
 	void delete(Long idEvaluation);
 
-	List<Evaluation> findByNomCours(String nomCours);
+	List<Evaluation> findByCours(Cours cours);
 }
