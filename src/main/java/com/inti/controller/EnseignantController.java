@@ -102,6 +102,8 @@ public class EnseignantController {
 	@DeleteMapping("/enseignants/{idE}")
 	public void deleteEnseignant(@PathVariable("idE") Long idEnseignant) {
 		enseignantService.delete(idEnseignant);
-	}*/
-	
+
+	}
+	*/
+
 }
