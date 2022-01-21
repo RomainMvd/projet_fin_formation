@@ -16,23 +16,35 @@ public class Evaluation implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idEvaluation;
 	private String commentaire;
-	private String nomCours; // A RETIRER ?
+	private Double noteCours;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="id_cours")
 	private Cours cours;
 
-	public Evaluation(String commentaire, String nomCours, Cours cours) {
+	public Evaluation(String commentaire, Cours cours) {
 		
 		this.commentaire = commentaire;
-		this.nomCours = nomCours;
+		
+		this.cours = cours;
+	}
+	
+	
+
+	public Evaluation(String commentaire, Double noteCours, Cours cours) {
+		super();
+		this.commentaire = commentaire;
+		this.noteCours = noteCours;
 		this.cours = cours;
 	}
 
-	public Evaluation(String commentaire, String nomCours) {
+
+
+	public Evaluation(String commentaire) {
 		
 		this.commentaire = commentaire;
-		this.nomCours = nomCours;
+		
 	}
 
 	public Evaluation() {
@@ -55,12 +67,14 @@ public class Evaluation implements Serializable {
 		this.commentaire = commentaire;
 	}
 
-	public String getNomCours() {
-		return nomCours;
+	
+
+	public Double getNoteCours() {
+		return noteCours;
 	}
 
-	public void setNomCours(String nomCours) {
-		this.nomCours = nomCours;
+	public void setNoteCours(Double noteCours) {
+		this.noteCours = noteCours;
 	}
 
 	public Cours getCours() {
@@ -71,11 +85,14 @@ public class Evaluation implements Serializable {
 		this.cours = cours;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Evaluation [idEvaluation=" + idEvaluation + ", commentaire=" + commentaire + ", nomCours=" + nomCours
-				+ ", cours=" + cours + "]";
+		return "Evaluation [commentaire=" + commentaire + ", noteCours=" + noteCours + ", cours=" + cours + "]";
 	}
+
+	
 	
 	
 }

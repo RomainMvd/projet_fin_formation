@@ -36,7 +36,7 @@ public class EtudiantController {
 	PasswordEncoder passwordEncoder;
 	
 	// BASIC FUNCTION
-	
+	/*
 	@GetMapping("/etudiants")
 	public List<Etudiant> findAll() {
 		return etudiantService.findAll();
@@ -51,14 +51,14 @@ public class EtudiantController {
 	public Etudiant findOne(@PathVariable("username") String username) {
 		return etudiantService.findByUsername(username);
 	}
-	
-	@GetMapping("/etudiants/{abc}")
-	public List<Personne> findByRole(@PathVariable("abc") String type){
+	*/
+	@GetMapping("/etudiants/{type}")
+	public List<Personne> findByRole(@PathVariable("type") String type){
 		return personneService.findByRole(type);
 	}
 	
 	
-	
+	/*
 	@PostMapping("/etudiants")
 	public String saveEtudiant(@RequestParam(name = "nomEtudiant", required = false) String nomEtudiant, @RequestParam(name = "prenomEtudiant", required = false) String prenomEtudiant,
 			@RequestParam(name = "username", required = false) String username, @RequestParam(name="password", required = false) String password, @RequestParam(name = "moyenne", required = false) Double moyenne,
@@ -116,5 +116,5 @@ public class EtudiantController {
 	public void deleteEtudiant(@PathVariable("idE") Long idEtudiant) {
 		etudiantService.delete(idEtudiant);
 	}
-	
+	*/
 }

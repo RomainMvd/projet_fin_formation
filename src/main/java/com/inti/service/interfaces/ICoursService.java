@@ -18,6 +18,7 @@ public interface ICoursService {
 
 	Cours findByNomCours(String nomCours);
 
+
 	// PLUS
 	Set<Cours> findByNomMatiere(String nomMatiere);
 

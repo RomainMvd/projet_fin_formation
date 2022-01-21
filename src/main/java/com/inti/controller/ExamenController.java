@@ -46,7 +46,6 @@ public class ExamenController {
 			if (fichierExamen != null) {
 				currentExam.setFichierExamen(fichierExamen.getBytes());
 			}
-			// currentExam.setFichierExamen(fichierExamen.getBytes());
 			examenService.save(currentExam);
 			return "File uploaded successfully! filename=" + fichierExamen.getOriginalFilename();
 		} catch (Exception ex) {

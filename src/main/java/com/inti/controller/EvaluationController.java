@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.entities.Cours;
 import com.inti.entities.Evaluation;
 import com.inti.service.interfaces.ICoursService;
 import com.inti.service.interfaces.IEvaluationService;
@@ -23,7 +24,7 @@ public class EvaluationController {
 	IEvaluationService evaluationService;
 	@Autowired
 	ICoursService coursService;
-/*
+
 	@RequestMapping(value = "evaluations", method = RequestMethod.GET)
 	public List<Evaluation> findAll() {
 		return evaluationService.findAll();
@@ -33,23 +34,20 @@ public class EvaluationController {
 	public Evaluation findOne(@PathVariable("idEv") Long idEvaluation) {
 		return evaluationService.findOne(idEvaluation);
 	}
-
-	@RequestMapping(value = "evaluations/{idEv}/{nomCours}", method = RequestMethod.GET)
-	public Evaluation findByIdEvaluationAndNomCours(@PathVariable("idEv") Long idEvaluation,
-			@PathVariable("nomCours") String nomCours) {
-		return evaluationService.findByIdEvaluationAndNomCours(idEvaluation, nomCours);
-	}
 	
+	@RequestMapping(value="evaluations/", method = RequestMethod.GET)
+	public List<Evaluation> findByCours(Cours cours) {
+		return evaluationService.findByCours(cours);
+	}
 
-
-
-	@PostMapping("/evaluations/{nomCours}")
-	public Evaluation saveEvaluation(@PathVariable("nomCours") String nomCours,
-		@RequestParam(name ="note", required = false) Long noteCours,
-		@RequestParam(name = "commentaire", required = false) String commentaire){
+	@PostMapping("/evaluations")
+	public Evaluation saveEvaluation(@RequestParam(name ="note", required = false) Double noteCours,
+		@RequestParam(name = "commentaire", required = false) String commentaire,
+		@RequestParam(name="nomCours", required = false) Cours nomCours ){
 		Evaluation currentEva = new Evaluation();
 		currentEva.setNoteCours(noteCours);
 		currentEva.setCommentaire(commentaire);
+		currentEva.setCours(nomCours);
 		return evaluationService.save(currentEva);
 	}
 
@@ -59,12 +57,13 @@ public class EvaluationController {
 		Evaluation currentEvaluation = evaluationService.findOne(idEvaluation);
 		currentEvaluation.setNoteCours(evaluation.getNoteCours());
 		currentEvaluation.setCommentaire(evaluation.getCommentaire());
-		currentEvaluation.setNomCours(evaluation.getNomCours());
+		currentEvaluation.setCours(evaluation.getCours());
 		return evaluationService.save(currentEvaluation);
 	}
 
 	@RequestMapping(value = "evaluations/{idEvaluation}", method = RequestMethod.DELETE)
 	public void deleteEvaluation(@PathVariable("idEvaluation") Long idEvaluation) {
 		evaluationService.delete(idEvaluation);
-	}*/
+	}
+	
 }

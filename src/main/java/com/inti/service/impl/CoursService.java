@@ -51,6 +51,8 @@ public class CoursService implements ICoursService {
 	public Set<Cours> findByExamens(Set<Examen> examens) {
 
 		return coursRep.findByExamens(examens);
+
 	}
+
 
 }
