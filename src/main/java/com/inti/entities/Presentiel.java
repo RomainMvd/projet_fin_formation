@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("presentiel")
-public class Presentiel extends Cours implements Serializable{
-	
+public class Presentiel extends Cours implements Serializable {
+
 	private String salle;
 
 	public Presentiel() {
@@ -17,21 +17,20 @@ public class Presentiel extends Cours implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Presentiel(String nomCours, String nomMatiere, Double nbrHeure) {
-		super(nomCours, nomMatiere, nbrHeure);
+	public Presentiel(String nomMatiere, Double nbrHeure) {
+		super(nomMatiere, nbrHeure);
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Presentiel(String nomCours, String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations,
-			Set<Examen> examens, String salle) {
-		super(nomCours, nomMatiere, nbrHeure, evaluations, examens);
+	public Presentiel(String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations, Set<Examen> examens,
+			String salle) {
+		super(nomMatiere, nbrHeure, evaluations, examens);
 
 		this.salle = salle;
 	}
 
-	public Presentiel(String nomCours, String nomMatiere, Double nbrHeure, String salle) {
-		super(nomCours, nomMatiere, nbrHeure);
+	public Presentiel(String nomMatiere, Double nbrHeure, String salle) {
+		super(nomMatiere, nbrHeure);
 		this.salle = salle;
 	}
 
@@ -47,6 +46,5 @@ public class Presentiel extends Cours implements Serializable{
 	public String toString() {
 		return "Presentiel [salle=" + salle + "]";
 	}
-	
-	
+
 }

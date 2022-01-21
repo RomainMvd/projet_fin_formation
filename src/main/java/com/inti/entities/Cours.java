@@ -22,8 +22,7 @@ public class Cours implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCours;
-	private String nomCours;
-	private String nomMatiere; // A RETIRER ?
+	private String nomMatiere;
 	private Double nbrHeure;
 
 	@OneToMany(mappedBy = "cours")
@@ -32,17 +31,15 @@ public class Cours implements Serializable {
 	@OneToMany(mappedBy = "cours")
 	private Set<Examen> examens = new HashSet<>();
 
-	public Cours(String nomCours, String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations,
+	public Cours(String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations,
 			Set<Examen> examens) {
-		this.nomCours = nomCours;
 		this.nomMatiere = nomMatiere;
 		this.nbrHeure = nbrHeure;
 		this.evaluations = evaluations;
 		this.examens = examens;
 	}
 
-	public Cours(String nomCours, String nomMatiere, Double nbrHeure) {
-		this.nomCours = nomCours;
+	public Cours(String nomMatiere, Double nbrHeure) {
 		this.nomMatiere = nomMatiere;
 		this.nbrHeure = nbrHeure;
 	}
@@ -56,14 +53,6 @@ public class Cours implements Serializable {
 
 	public void setIdCours(Long idCours) {
 		this.idCours = idCours;
-	}
-
-	public String getNomCours() {
-		return nomCours;
-	}
-
-	public void setNomCours(String nomCours) {
-		this.nomCours = nomCours;
 	}
 
 	public String getNomMatiere() {
@@ -100,9 +89,11 @@ public class Cours implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cours [idCours=" + idCours + ", nomCours=" + nomCours + ", nomMatiere=" + nomMatiere + ", nbrHeure="
-				+ nbrHeure + "]";
+		return "Cours [idCours=" + idCours + ", nomMatiere=" + nomMatiere + ", nbrHeure=" + nbrHeure + ", evaluations="
+				+ evaluations + ", examens=" + examens + "]";
 	}
+
+	
 
 }
 /*

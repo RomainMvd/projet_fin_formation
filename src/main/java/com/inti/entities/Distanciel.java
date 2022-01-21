@@ -12,29 +12,24 @@ public class Distanciel extends Cours implements Serializable {
 
 	private String lienZoom;
 
-
-
-	public Distanciel(String nomCours, String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations,
-			Set<Examen> examens) {
-		super(nomCours, nomMatiere, nbrHeure, evaluations, examens);
+	public Distanciel(String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations, Set<Examen> examens) {
+		super(nomMatiere, nbrHeure, evaluations, examens);
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	public Distanciel(String nomCours, String nomMatiere, Double nbrHeure) {
-		super(nomCours, nomMatiere, nbrHeure);
+	public Distanciel(String nomMatiere, Double nbrHeure) {
+		super(nomMatiere, nbrHeure);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Distanciel(String nomCours, String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations,
-			Set<Examen> examens, String lienZoom) {
-		super(nomCours, nomMatiere, nbrHeure, evaluations, examens);
+	public Distanciel(String nomMatiere, Double nbrHeure, Set<Evaluation> evaluations, Set<Examen> examens,
+			String lienZoom) {
+		super(nomMatiere, nbrHeure, evaluations, examens);
 		this.lienZoom = lienZoom;
 	}
 
-	public Distanciel(String nomCours, String nomMatiere, Double nbrHeure, String lienZoom) {
-		super(nomCours, nomMatiere, nbrHeure);
+	public Distanciel(String nomMatiere, Double nbrHeure, String lienZoom) {
+		super(nomMatiere, nbrHeure);
 		this.lienZoom = lienZoom;
 	}
 
@@ -51,6 +46,4 @@ public class Distanciel extends Cours implements Serializable {
 		return "Distanciel [lienZoom=" + lienZoom + "]";
 	}
 
-	
-	
 }
