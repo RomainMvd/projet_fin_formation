@@ -19,7 +19,7 @@ public class CoursController {
 
 	@Autowired
 	ICoursService coursServ;
-
+/*
 	@RequestMapping(value = "cours", method = RequestMethod.GET)
 	public List<Cours> findAll() {
 		return coursServ.findAll();
@@ -61,6 +61,6 @@ public class CoursController {
 		currentCours.setNbrHeure(cours.getNbrHeure());
 		currentCours.setFichierCours(cours.getFichierCours());
 		return coursServ.save(currentCours);
-	}
+	}*/
 
 }

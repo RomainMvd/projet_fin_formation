@@ -17,7 +17,7 @@ import com.inti.service.interfaces.IClasseService;
 @CrossOrigin
 public class ClasseController {
 	@Autowired
-	IClasseService classeService;
+	IClasseService classeService;/*
 
 	@RequestMapping(value = "classes", method = RequestMethod.GET)
 	public List<Classe> findAll() {
@@ -50,5 +50,5 @@ public class ClasseController {
 	@RequestMapping(value = "classes/{idC}", method = RequestMethod.DELETE)
 	public void deleteClasse(@PathVariable("idC") Long idClasse, @RequestBody Classe classe) {
 		classeService.delete(idClasse);
-	}
+	}*/
 }

@@ -25,7 +25,7 @@ public class Cours implements Serializable {
 
 
 	private String nomCours;
-	private String nomMatiere; // A RETIRER ?
+	private String nomMatiere;
 	private Double nbrHeure;
 
 	
@@ -42,9 +42,6 @@ public class Cours implements Serializable {
 		this.nbrHeure = nbrHeure;
 		this.evaluations = evaluations;
 		this.examens = examens;
-	}
-
-
 		this.nbrHeure = nbrHeure;
 	}
 

@@ -23,7 +23,7 @@ public class EvaluationController {
 	IEvaluationService evaluationService;
 	@Autowired
 	ICoursService coursService;
-
+/*
 	@RequestMapping(value = "evaluations", method = RequestMethod.GET)
 	public List<Evaluation> findAll() {
 		return evaluationService.findAll();
@@ -66,5 +66,5 @@ public class EvaluationController {
 	@RequestMapping(value = "evaluations/{idEvaluation}", method = RequestMethod.DELETE)
 	public void deleteEvaluation(@PathVariable("idEvaluation") Long idEvaluation) {
 		evaluationService.delete(idEvaluation);
-	}
+	}*/
 }

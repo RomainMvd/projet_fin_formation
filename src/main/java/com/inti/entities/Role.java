@@ -39,7 +39,6 @@ public class Role implements Serializable {
 
 	public Role(String nomRole) {
 
-	public Role() {
 	}
 
 	public Role(Long idRole, String nomRole) {

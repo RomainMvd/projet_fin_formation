@@ -6,7 +6,7 @@ import com.inti.entities.Etudiant;
 import com.inti.entities.Personne;
 
 public interface IEtudiantService {
-	List<Personne> findAll();
+	List<Etudiant> findAll();
 
 	Etudiant findOne(Long idEtudiant);
 
@@ -19,9 +19,6 @@ public interface IEtudiantService {
 	Etudiant findByUsernameAndPassword(String username, String password);
 
 	
-	List<Personne> findByRole(String type);
-
-
 	Etudiant findByEmail(String email);
 
 	List<Etudiant> findByMoyenne(Double moyenne);
