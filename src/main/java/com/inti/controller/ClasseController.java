@@ -29,10 +29,10 @@ public class ClasseController {
 		return classeService.findOne(idClasse);
 	}
 
-	@RequestMapping(value = "classes/{idC}/{nomC}", method = RequestMethod.GET)
+	@RequestMapping(value = "classes/{nomC}", method = RequestMethod.GET)
 
-	public Classe findByIdClasseAndNomClasse(@PathVariable("idC") Long idClasse, @PathVariable("nomC") String nomClasse) {
-		return classeService.findByIdClasseAndNomClasse(idClasse, nomClasse);
+	public Classe findByIdClasseAndNomClasse(@PathVariable("nomC") String nomClasse) {
+		return classeService.findByNomClasse(nomClasse);
 	}
 
 	@RequestMapping(value = "classes", method = RequestMethod.POST)

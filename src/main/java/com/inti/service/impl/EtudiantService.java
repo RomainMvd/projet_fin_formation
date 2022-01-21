@@ -13,13 +13,11 @@ import com.inti.service.interfaces.IEtudiantService;
 import com.inti.service.interfaces.IPersonneService;
 
 @Service
-public class EtudiantService implements IEtudiantService{
+public class EtudiantService implements IEtudiantService {
 
 	@Autowired
 	EtudiantRepository etudiantRepository;
-	
-	
-	
+
 	@Override
 	public List<Etudiant> findAll() {
 		return etudiantRepository.findAll();
@@ -38,7 +36,7 @@ public class EtudiantService implements IEtudiantService{
 	@Override
 	public void delete(Long idEtudiant) {
 		etudiantRepository.deleteById(idEtudiant);
-		
+
 	}
 
 	@Override
@@ -51,7 +49,6 @@ public class EtudiantService implements IEtudiantService{
 		return etudiantRepository.findByUsernameAndPassword(username, password);
 	}
 
-	
 
 	@Override
 	public Etudiant findByEmail(String email) {
@@ -68,6 +65,5 @@ public class EtudiantService implements IEtudiantService{
 		return etudiantRepository.findByEnabled(enabled);
 	}
 	
-
 
 }
