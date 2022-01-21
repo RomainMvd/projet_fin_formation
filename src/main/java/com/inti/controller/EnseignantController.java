@@ -25,7 +25,7 @@ public class EnseignantController {
 
 	@Autowired
 	IEnseignantService enseignantService;
-	
+	/*
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
@@ -68,7 +68,7 @@ public class EnseignantController {
 			return "Error";
 		}
 	}
-	*/
+	
 	
 	@PostMapping("/enseignants")
 	public Enseignant saveEnseignant(@RequestBody Enseignant enseignant) {
@@ -93,7 +93,7 @@ public class EnseignantController {
 		currentEnseignant.setSalaire(enseignant.getSalaire());
 		currentEnseignant.setDateNaissance(enseignant.getDateNaissance());
 		currentEnseignant.setEmail(enseignant.getEmail());
-		currentEnseignant.setMatieres(enseignant.getMatieres());
+		currentEnseignant.setCourss(enseignant.getCourss());
 		currentEnseignant.setRoles(enseignant.getRoles());
 		currentEnseignant.setClasse(enseignant.getClasse());
 		return enseignantService.save(currentEnseignant);
@@ -103,5 +103,5 @@ public class EnseignantController {
 	public void deleteEnseignant(@PathVariable("idE") Long idEnseignant) {
 		enseignantService.delete(idEnseignant);
 	}
-	
+	*/
 }

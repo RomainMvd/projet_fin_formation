@@ -19,52 +19,52 @@ import com.inti.service.interfaces.IEvaluationService;
 @RestController
 @CrossOrigin
 public class EvaluationController {
-    @Autowired
-    IEvaluationService evaluationService;
-    @Autowired
-    ICoursService coursService;
+	@Autowired
+	IEvaluationService evaluationService;
+	@Autowired
+	ICoursService coursService;
+/*
+	@RequestMapping(value = "evaluations", method = RequestMethod.GET)
+	public List<Evaluation> findAll() {
+		return evaluationService.findAll();
+	}
 
-    @RequestMapping(value = "evaluations", method = RequestMethod.GET)
-    public List<Evaluation> findAll() {
-        return evaluationService.findAll();
-    }
+	@RequestMapping(value = "evaluations/{idEv}", method = RequestMethod.GET)
+	public Evaluation findOne(@PathVariable("idEv") Long idEvaluation) {
+		return evaluationService.findOne(idEvaluation);
+	}
 
-    @RequestMapping(value = "evaluations/{idEv}", method = RequestMethod.GET)
-    public Evaluation findOne(@PathVariable("idEv") Long idEvaluation) {
-        return evaluationService.findOne(idEvaluation);
-    }
-
-    @RequestMapping(value = "evaluations/{idEv}/{nomCours}", method = RequestMethod.GET)
-    public Evaluation findByIdEvaluationAndNomCours(@PathVariable("idEv") Long idEvaluation,
-            @PathVariable("nomCours") String nomCours) {
-        return evaluationService.findByIdEvaluationAndNomCours(idEvaluation, nomCours);
-    }
-    
+	@RequestMapping(value = "evaluations/{idEv}/{nomCours}", method = RequestMethod.GET)
+	public Evaluation findByIdEvaluationAndNomCours(@PathVariable("idEv") Long idEvaluation,
+			@PathVariable("nomCours") String nomCours) {
+		return evaluationService.findByIdEvaluationAndNomCours(idEvaluation, nomCours);
+	}
+	
 
 
 
-    @PostMapping("/evaluations/{nomCours}")
-    public Evaluation saveEvaluation(@PathVariable("nomCours") String nomCours,
-        @RequestParam(name ="note", required = false) Long noteCours,
-        @RequestParam(name = "commentaire", required = false) String commentaire){
-        Evaluation currentEva = new Evaluation();
-        currentEva.setNoteCours(noteCours);
-        currentEva.setCommentaire(commentaire);
-        return evaluationService.save(currentEva);
-    }
+	@PostMapping("/evaluations/{nomCours}")
+	public Evaluation saveEvaluation(@PathVariable("nomCours") String nomCours,
+		@RequestParam(name ="note", required = false) Long noteCours,
+		@RequestParam(name = "commentaire", required = false) String commentaire){
+		Evaluation currentEva = new Evaluation();
+		currentEva.setNoteCours(noteCours);
+		currentEva.setCommentaire(commentaire);
+		return evaluationService.save(currentEva);
+	}
 
-    @RequestMapping(value = "evaluations/{idEv}", method = RequestMethod.PUT)
+	@RequestMapping(value = "evaluations/{idEv}", method = RequestMethod.PUT)
 
-    public Evaluation updateEvaluation(@PathVariable("idEv") Long idEvaluation, @RequestBody Evaluation evaluation) {
-        Evaluation currentEvaluation = evaluationService.findOne(idEvaluation);
-        currentEvaluation.setNoteCours(evaluation.getNoteCours());
-        currentEvaluation.setCommentaire(evaluation.getCommentaire());
-        currentEvaluation.setNomCours(evaluation.getNomCours());
-        return evaluationService.save(currentEvaluation);
-    }
+	public Evaluation updateEvaluation(@PathVariable("idEv") Long idEvaluation, @RequestBody Evaluation evaluation) {
+		Evaluation currentEvaluation = evaluationService.findOne(idEvaluation);
+		currentEvaluation.setNoteCours(evaluation.getNoteCours());
+		currentEvaluation.setCommentaire(evaluation.getCommentaire());
+		currentEvaluation.setNomCours(evaluation.getNomCours());
+		return evaluationService.save(currentEvaluation);
+	}
 
-    @RequestMapping(value = "evaluations/{idEvaluation}", method = RequestMethod.DELETE)
-    public void deleteEvaluation(@PathVariable("idEvaluation") Long idEvaluation) {
-        evaluationService.delete(idEvaluation);
-    }
+	@RequestMapping(value = "evaluations/{idEvaluation}", method = RequestMethod.DELETE)
+	public void deleteEvaluation(@PathVariable("idEvaluation") Long idEvaluation) {
+		evaluationService.delete(idEvaluation);
+	}*/
 }

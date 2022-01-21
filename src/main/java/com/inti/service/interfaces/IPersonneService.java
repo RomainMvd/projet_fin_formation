@@ -16,4 +16,11 @@ public interface IPersonneService {
 	Personne findByUsername(String username);
 
 	Personne findByUsernameAndPassword(String username, String password);
+
+	
+	List<Personne> findByRole(String type);
+
+
+	Personne findByEmail(String email);
+
 }

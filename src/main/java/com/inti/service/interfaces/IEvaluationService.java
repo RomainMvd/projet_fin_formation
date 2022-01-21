@@ -14,5 +14,5 @@ public interface IEvaluationService {
 
 	void delete(Long idEvaluation);
 
-	Evaluation findByIdEvaluationAndNomCours(Long idEvaluation, String nomCours);
+	List<Evaluation> findByNomCours(String nomCours);
 }

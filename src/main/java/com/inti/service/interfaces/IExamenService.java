@@ -1,5 +1,6 @@
 package com.inti.service.interfaces;
 
+import java.util.Date;
 import java.util.List;
 
 import com.inti.entities.Examen;
@@ -13,5 +14,6 @@ public interface IExamenService {
 
 	void delete(Long idExamen);
 	
-	Examen findByNomExamen(String nomExamen);
+	List<Examen> findByDateExamen(Date dateExamen);
+	List<Examen> findByNomExamen(String nomExamen);
 }

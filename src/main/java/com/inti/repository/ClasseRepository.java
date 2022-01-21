@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.inti.entities.Classe;
 @Repository
 public interface ClasseRepository extends JpaRepository<Classe, Long> {
-	Classe findByIdClasseAndNomClasse(Long idClasse, String nomClasse);
+
+	Classe findByNomClasse(String nomClasse);
 
 }

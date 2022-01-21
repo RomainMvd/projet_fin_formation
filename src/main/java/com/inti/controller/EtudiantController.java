@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.entities.Enseignant;
 import com.inti.entities.Etudiant;
+import com.inti.entities.Personne;
 import com.inti.service.interfaces.IEtudiantService;
+import com.inti.service.interfaces.IPersonneService;
 
 @RestController
 @CrossOrigin
@@ -24,6 +27,10 @@ public class EtudiantController {
 
 	@Autowired
 	IEtudiantService etudiantService;
+	@Autowired
+	IPersonneService personneService;
+	
+	
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -45,7 +52,13 @@ public class EtudiantController {
 		return etudiantService.findByUsername(username);
 	}
 	
-	/*
+	@GetMapping("/etudiants/{abc}")
+	public List<Personne> findByRole(@PathVariable("abc") String type){
+		return personneService.findByRole(type);
+	}
+	
+	
+	
 	@PostMapping("/etudiants")
 	public String saveEtudiant(@RequestParam(name = "nomEtudiant", required = false) String nomEtudiant, @RequestParam(name = "prenomEtudiant", required = false) String prenomEtudiant,
 			@RequestParam(name = "username", required = false) String username, @RequestParam(name="password", required = false) String password, @RequestParam(name = "moyenne", required = false) Double moyenne,
@@ -59,7 +72,7 @@ public class EtudiantController {
 			currentEtudiant.setPassword(passwordEncoder.encode(password));
 			System.out.println(currentEtudiant.getPassword());
 			currentEtudiant.setMoyenne(moyenne);
-			currentEtudiant.setDateNaissance(dateNaissance);
+			currentEtudiant.setDateNaissancePersonne(dateNaissance);
 			currentEtudiant.setEmail(emailEtudiant);
 			etudiantService.save(currentEtudiant);
 			return "Etudiant uploaded";
@@ -68,7 +81,7 @@ public class EtudiantController {
 			return "Error";
 		}
 	}
-	*/
+	
 	
 	@PostMapping("/etudiants")
 	public Etudiant saveEtudiant(@RequestBody Etudiant etudiant) {
@@ -78,7 +91,7 @@ public class EtudiantController {
 		currentEtudiant.setUsername(etudiant.getUsername());
 		currentEtudiant.setPassword(passwordEncoder.encode(etudiant.getPassword()));
 		currentEtudiant.setMoyenne(etudiant.getMoyenne());
-		currentEtudiant.setDateNaissance(etudiant.getDateNaissance());
+		currentEtudiant.setDateNaissancePersonne(etudiant.getDateNaissancePersonne());
 		currentEtudiant.setEmail(etudiant.getEmail());
 		return etudiantService.save(currentEtudiant);
 	}
@@ -91,11 +104,11 @@ public class EtudiantController {
 		currentEtudiant.setUsername(etudiant.getUsername());
 		currentEtudiant.setPassword(etudiant.getPassword());
 		currentEtudiant.setMoyenne(etudiant.getMoyenne());
-		currentEtudiant.setDateNaissance(etudiant.getDateNaissance());
+		currentEtudiant.setDateNaissancePersonne(etudiant.getDateNaissancePersonne());
 		currentEtudiant.setEmail(etudiant.getEmail());
-		currentEtudiant.setMatieres(etudiant.getMatieres());
+		currentEtudiant.setCourss(etudiant.getCourss());
 		currentEtudiant.setRoles(etudiant.getRoles());
-		currentEtudiant.setClasse(etudiant.getClasse());
+		//currentEtudiant.setClasse(etudiant.getClasse());
 		return etudiantService.save(currentEtudiant);
 	}
 	

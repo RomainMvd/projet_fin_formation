@@ -6,14 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inti.entities.Etudiant;
+import com.inti.entities.Personne;
 import com.inti.repository.EtudiantRepository;
+import com.inti.repository.PersonneRepository;
 import com.inti.service.interfaces.IEtudiantService;
+import com.inti.service.interfaces.IPersonneService;
 
 @Service
 public class EtudiantService implements IEtudiantService{
 
 	@Autowired
 	EtudiantRepository etudiantRepository;
+	
+	
 	
 	@Override
 	public List<Etudiant> findAll() {
@@ -45,5 +50,24 @@ public class EtudiantService implements IEtudiantService{
 	public Etudiant findByUsernameAndPassword(String username, String password) {
 		return etudiantRepository.findByUsernameAndPassword(username, password);
 	}
+
+	
+
+	@Override
+	public Etudiant findByEmail(String email) {
+		return etudiantRepository.findByEmail(email);
+	}
+
+	@Override
+	public List<Etudiant> findByMoyenne(Double moyenne) {
+		return etudiantRepository.findByMoyenne(moyenne);
+	}
+
+	@Override
+	public List<Etudiant> findByEnabled(boolean enabled) {
+		return etudiantRepository.findByEnabled(enabled);
+	}
+	
+
 
 }

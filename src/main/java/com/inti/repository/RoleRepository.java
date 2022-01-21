@@ -7,6 +7,9 @@ import com.inti.entities.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
-	Role findByIdRoleAndNomRole(Long idRole, String nomRole);
+	Role findByNomRole(String nomRole);
 
+	/*
+	 * Role findByIdRoleNomRole(Long idRole, String nomRole);
+	 */
 }
