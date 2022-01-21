@@ -20,6 +20,9 @@ public class Role implements Serializable {
 	private Long idRole;
 	private String nomRole;
 
+	public Role() {
+	}
+
 
 //	@ManyToMany(fetch = FetchType.EAGER)
 //	@JoinTable(name = "Profil", joinColumns = @JoinColumn(name = "id_Role", referencedColumnName = "idRole"), inverseJoinColumns = @JoinColumn(name = "id_Personne", referencedColumnName = "idPersonne"))
@@ -34,12 +37,6 @@ public class Role implements Serializable {
 	 * personnes = new HashSet<>();
 	 */
 
-	public Role() {
-	}
-
-	public Role(String nomRole) {
-
-	}
 
 	public Role(Long idRole, String nomRole) {
 		this.idRole = idRole;
