@@ -16,10 +16,10 @@ import com.inti.service.interfaces.ICoursService;
 
 @RestController
 public class CoursController {
-
+	/*
 	@Autowired
 	ICoursService coursServ;
-/*
+
 	@RequestMapping(value = "cours", method = RequestMethod.GET)
 	public List<Cours> findAll() {
 		return coursServ.findAll();

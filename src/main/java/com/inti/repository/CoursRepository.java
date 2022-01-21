@@ -15,6 +15,8 @@ public interface CoursRepository extends JpaRepository<Cours, Long> {
 
 	Cours findByNomCours(String nomCours);
 	// PLUS
+	/*
 	List<Cours> findByNomMatiere(String nomMatiere);
 	List<Cours> findByExamens(Set<Examen> examens);
+	*/
 }

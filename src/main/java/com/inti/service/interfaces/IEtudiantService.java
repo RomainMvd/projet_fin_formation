@@ -24,5 +24,6 @@ public interface IEtudiantService {
 	List<Etudiant> findByMoyenne(Double moyenne);
 
 	List<Etudiant> findByEnabled(boolean enabled);
+	
 
 }

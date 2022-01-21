@@ -5,6 +5,7 @@ import java.util.List;
 import com.inti.entities.Personne;
 
 public interface IPersonneService {
+	
 	List<Personne> findAll();
 
 	Personne findOne(Long idPersonne);
@@ -15,12 +16,7 @@ public interface IPersonneService {
 
 	Personne findByUsername(String username);
 
-	Personne findByUsernameAndPassword(String username, String password);
 
 	
 	List<Personne> findByRole(String type);
-
-
-	Personne findByEmail(String email);
-
 }

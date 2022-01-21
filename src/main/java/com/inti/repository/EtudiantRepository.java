@@ -21,5 +21,10 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
 	
 	List<Etudiant> findByMoyenne(Double moyenne);
 	List<Etudiant> findByEnabled(boolean enabled);
+	
+	public String commandeSQL = "SELECT * FROM personne WHERE personne_type=?1";// Premier type indiqué dans la BD est enseignant
+	@Query(value = commandeSQL, nativeQuery = true)
+	List<Personne> listeEnseignants(String type);
+
 }
 

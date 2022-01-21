@@ -11,10 +11,8 @@ import com.inti.entities.Personne;
 @Repository
 public interface PersonneRepository extends JpaRepository<Personne, Long>{
 	Personne findByUsername(String username);
-	Personne findByUsernameAndPassword(String username, String password);
-	Personne findByEmail(String email);
 	
-	public String commandeSQL = "SELECT * FROM personne WHERE type=?1";// Premier type indiqué dans la BD est enseignant
+	public String commandeSQL = "SELECT * FROM personne WHERE personne_type=?1";// Premier type indiqué dans la BD est enseignant
 
 	@Query(value = commandeSQL, nativeQuery = true)
 	List<Personne> listeEnseignants(String type);

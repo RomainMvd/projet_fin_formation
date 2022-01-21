@@ -17,7 +17,8 @@ public class EtudiantService implements IEtudiantService{
 
 	@Autowired
 	EtudiantRepository etudiantRepository;
-	
+	@Autowired
+	PersonneRepository personneRepository;
 	
 	
 	@Override
@@ -46,12 +47,11 @@ public class EtudiantService implements IEtudiantService{
 		return etudiantRepository.findByUsername(username);
 	}
 
+	// A RETIRER ?
 	@Override
 	public Etudiant findByUsernameAndPassword(String username, String password) {
 		return etudiantRepository.findByUsernameAndPassword(username, password);
 	}
-
-	
 
 	@Override
 	public Etudiant findByEmail(String email) {
@@ -67,7 +67,7 @@ public class EtudiantService implements IEtudiantService{
 	public List<Etudiant> findByEnabled(boolean enabled) {
 		return etudiantRepository.findByEnabled(enabled);
 	}
-	
+
 
 
 }

@@ -42,6 +42,7 @@ public class CoursService implements ICoursService{
 		return coursRep.findByNomCours(nomCours);
 	}
 
+	/*
 	@Override
 	public List<Cours> findByNomMatiere(String nomMatiere) {
 		return coursRep.findByNomMatiere(nomMatiere);
@@ -52,6 +53,6 @@ public class CoursService implements ICoursService{
 		return coursRep.findByExamens(examens);
 	}
 	
-	
+	*/
 
 }

@@ -14,8 +14,6 @@ public interface IEnseignantService {
 	void delete(Long idEnseignant);
 
 	Enseignant findByUsername(String username);
-	Enseignant findByUsernameAndPassword(String username, String password);
-	Enseignant findByEmail(String email);
 	
 	List<Enseignant> findBySalaire(Double salaire);
 	List<Enseignant> findByEnabled(boolean enabled);

@@ -2,6 +2,7 @@ package com.inti.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.inti.entities.Cours;
 import com.inti.entities.Enseignant;
-import com.inti.entities.Enseignant;
+import com.inti.entities.Role;
 import com.inti.service.interfaces.IEnseignantService;
 
 @RestController
@@ -25,6 +28,178 @@ public class EnseignantController {
 
 	@Autowired
 	IEnseignantService enseignantService;
+	
+	/*
+	@Autowired
+	IPersonneService personneService;
+	*/
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
+	// GET
+	
+	@GetMapping("/enseignants")
+	public List<Enseignant> findAll() {
+		return enseignantService.findAll();
+	}
+	
+	@GetMapping("/enseignants/{idE}")
+	public Enseignant findOne(@PathVariable("idE") Long idEnseignant) {
+		return enseignantService.findOne(idEnseignant);
+	}
+	
+	
+	@GetMapping("/enseignants/{username}")
+	public Enseignant findOneByUsername(@PathVariable("username") String username) {
+		return enseignantService.findByUsername(username);
+	}
+	
+	/*
+	@GetMapping("/enseignants/{email}")
+	public Enseignant findByEmail(@PathVariable("email") String email) {
+		return enseignantService.findByEmail(email);
+	}
+	
+	@GetMapping("/enseignants/{salaire}")
+	public List<Enseignant> findBySalaire(@PathVariable("salaire") Double salaire) {
+		return enseignantService.findBySalaire(salaire);
+	}
+	
+	@GetMapping("/enseignants/{enabled}")
+	public List<Enseignant> findByEnabled(@PathVariable("enabled") boolean enabled) {
+		return enseignantService.findByEnabled(enabled);
+	}
+	*/
+	
+	// DELETE
+	
+	@DeleteMapping("/enseignants/{idE}")
+	public void deleteEnseignant(@PathVariable("idE") Long idEnseignant) {
+		enseignantService.delete(idEnseignant);
+	}
+	
+	// POST
+	
+	// Méthode 1 POST
+	
+	@PostMapping("/enseignants")
+	public String saveEnseignant(@RequestParam(name = "nomEnseignant", required = false) String nomEnseignant, 
+			@RequestParam(name="prenomEnseignant", required = false) String prenomEnseignant, 
+			@RequestParam(name="dateNaissance", required = false) Date dateNaissance, 
+			@RequestParam(name="username", required = false) String username, 
+			@RequestParam(name="password", required = false) String password,
+			@RequestParam(name="email", required = false) String email, 
+			@RequestParam(name = "enabled", required = false) boolean enabled,
+			@RequestParam(name = "photoProfil", required = false) MultipartFile photoProfil,
+			@RequestParam(name = "roles", required = false) Set<Role> roles,
+			@RequestParam(name= "courss", required = false) Set<Cours> courss, 
+			@RequestParam(name = "salaire", required = false) Double salaire) {
+		System.out.println(username);
+		System.out.println(password);
+		try {
+			Enseignant currentEnseignant = new Enseignant();
+			currentEnseignant.setNomPersonne(nomEnseignant);
+			currentEnseignant.setPrenomPersonne(prenomEnseignant);
+			currentEnseignant.setDateNaissancePersonne(dateNaissance);
+			currentEnseignant.setUsername(username);
+			System.out.println(password);
+			currentEnseignant.setPassword(passwordEncoder.encode(password));
+			currentEnseignant.setEmail(email);
+			currentEnseignant.setEnabled(enabled);
+			if (photoProfil != null) {
+				currentEnseignant.setPhotoProfil(photoProfil.getBytes());
+			}
+			currentEnseignant.setRoles(roles);
+			currentEnseignant.setCourss(courss);
+			currentEnseignant.setSalaire(salaire);
+			enseignantService.save(currentEnseignant);
+			return "Enseignant uploaded";
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return "Failed";
+		}
+	}
+	
+	// Méthode 2
+	/*
+	@PostMapping("/enseignants")
+	public Enseignant saveEnseignant(@RequestBody Enseignant enseignant) {
+		Enseignant currentEnseignant = new Enseignant();
+		currentEnseignant.setNomPersonne(enseignant.getNomPersonne());
+		currentEnseignant.setPrenomPersonne(enseignant.getPrenomPersonne());
+		currentEnseignant.setDateNaissancePersonne(enseignant.getDateNaissancePersonne());
+		currentEnseignant.setUsername(enseignant.getUsername());
+		currentEnseignant.setPassword(passwordEncoder.encode(enseignant.getPassword()));
+		currentEnseignant.setEmail(enseignant.getEmail());
+		currentEnseignant.setEnabled(enseignant.isEnabled());
+		currentEnseignant.setPhotoProfil(enseignant.getPhotoProfil());
+		currentEnseignant.setRoles(enseignant.getRoles());
+		currentEnseignant.setCourss(enseignant.getCourss());
+		currentEnseignant.setSalaire(enseignant.getSalaire());
+		return enseignantService.save(currentEnseignant);
+		
+	}
+	*/
+	
+	// PUT
+	
+	@PutMapping("/enseignants/{idE}")
+	public Enseignant updateEnseignant(@PathVariable("idE") Long idEnseignant, @RequestBody Enseignant enseignant) {
+		Enseignant currentEnseignant = enseignantService.findOne(idEnseignant);
+		currentEnseignant.setNomPersonne(enseignant.getNomPersonne());
+		currentEnseignant.setPrenomPersonne(enseignant.getPrenomPersonne());
+		currentEnseignant.setDateNaissancePersonne(enseignant.getDateNaissancePersonne());
+		currentEnseignant.setUsername(enseignant.getUsername());
+		currentEnseignant.setPassword(enseignant.getPassword());
+		currentEnseignant.setEmail(enseignant.getEmail());
+		currentEnseignant.setEnabled(enseignant.isEnabled());
+		currentEnseignant.setPhotoProfil(enseignant.getPhotoProfil());
+		currentEnseignant.setRoles(enseignant.getRoles());
+		currentEnseignant.setCourss(enseignant.getCourss());
+		currentEnseignant.setSalaire(enseignant.getSalaire());
+		return enseignantService.save(currentEnseignant);
+		
+	}
+	/*
+	@PutMapping("/enseignants/{idE}")
+	public String updateEnseignant(@PathVariable("idE") Long idEnseignant, 
+			@RequestParam(name = "nomEnseignant", required = false) String nomEnseignant, 
+			@RequestParam(name="prenomEnseignant", required = false) String prenomEnseignant, 
+			@RequestParam(name="dateNaissance", required = false) Date dateNaissance, 
+			@RequestParam(name="username", required = false) String username, 
+			@RequestParam(name="password", required = false) String password,
+			@RequestParam(name="email", required = false) String email, 
+			@RequestParam(name = "enabled", required = false) boolean enabled,
+			@RequestParam(name = "photoProfil", required = false) MultipartFile photoProfil,
+			@RequestParam(name = "roles", required = false) Set<Role> roles,
+			@RequestParam(name= "courss", required = false) Set<Cours> courss, 
+			@RequestParam(name = "salaire", required = false) Double salaire) {
+		try {
+			Enseignant currentEnseignant = enseignantService.findOne(idEnseignant);
+			currentEnseignant.setNomPersonne(nomEnseignant);
+			currentEnseignant.setPrenomPersonne(prenomEnseignant);
+			currentEnseignant.setDateNaissancePersonne(dateNaissance);
+			currentEnseignant.setUsername(username);
+			System.out.println(password);
+			currentEnseignant.setPassword(passwordEncoder.encode(password));
+			currentEnseignant.setEmail(email);
+			currentEnseignant.setEnabled(enabled);
+			if (photoProfil != null) {
+				currentEnseignant.setPhotoProfil(photoProfil.getBytes());
+			}
+			currentEnseignant.setRoles(roles);
+			currentEnseignant.setCourss(courss);
+			currentEnseignant.setSalaire(salaire);
+			enseignantService.save(currentEnseignant);
+			return "Enseignant uploaded";
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return "Failed";
+		}
+	}
+*/
+}
 	/*
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -50,7 +225,7 @@ public class EnseignantController {
 	/*
 	@PostMapping("/enseignants")
 	public String saveEnseignant(@RequestParam(name = "nomEnseignant", required = false) String nomEnseignant, @RequestParam(name = "prenomEnseignant", required = false) String prenomEnseignant,
-			@RequestParam(name = "username", required = false) String username, @RequestParam(name="password", required = false) String password, @RequestParam(name = "moyenne", required = false) double salaire,
+			@RequestParam(name = "username", required = false) String username, @RequestParam(name="password", required = false) String password, @RequestParam(name = "salaire", required = false) double salaire,
 			@RequestParam(name = "dateNaissanceEnseignant", required = false) Date dateNaissance, @RequestParam(name = "emailEnseignant", required = false) String emailEnseignant) {
 		try {
 			Enseignant currentEnseignant = new Enseignant();
@@ -104,4 +279,4 @@ public class EnseignantController {
 		enseignantService.delete(idEnseignant);
 	}
 	*/
-}
+

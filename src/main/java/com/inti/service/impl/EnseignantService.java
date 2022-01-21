@@ -41,16 +41,7 @@ public class EnseignantService implements IEnseignantService{
 		return enseignantRepository.findByUsername(username);
 	}
 
-	@Override
-	public Enseignant findByUsernameAndPassword(String username, String password) {
-		return enseignantRepository.findByUsernameAndPassword(username, password);
-	}
-
-	@Override
-	public Enseignant findByEmail(String email) {
-		return enseignantRepository.findByEmail(email);
-	}
-
+	
 	@Override
 	public List<Enseignant> findBySalaire(Double salaire) {
 		return enseignantRepository.findBySalaire(salaire);
