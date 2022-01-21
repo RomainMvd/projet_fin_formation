@@ -42,7 +42,7 @@ public class CoursService implements ICoursService {
 		return coursRep.findByNomCours(nomCours);
 	}
 
-	@Override
+	/*@Override
 	public Set<Cours> findByNomMatiere(String nomMatiere) {
 		return coursRep.findByNomMatiere(nomMatiere);
 	}
@@ -52,7 +52,7 @@ public class CoursService implements ICoursService {
 
 		return coursRep.findByExamens(examens);
 
-	}
+	}*/
 
 
 }

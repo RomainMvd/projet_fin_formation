@@ -21,7 +21,7 @@ public class CoursController {
 
 	@Autowired
 	ICoursService coursServ;
-/*
+
 	@RequestMapping(value = "cours", method = RequestMethod.GET)
 	public List<Cours> findAll() {
 		return coursServ.findAll();
@@ -33,8 +33,7 @@ public class CoursController {
 	}
 
 	@RequestMapping(value = "cours", method = RequestMethod.POST)
-	public String saveCours(
-			@RequestParam(name = "nomCours", required = false) String nomCours,
+	public String saveCours(@RequestParam(name = "nomCours", required = false) String nomCours,
 			@RequestParam(name = "nbrHeure", required = false) Double nbrHeure,
 			@RequestParam(name = "fichierCours", required = false) MultipartFile fichierCours) {
 		try {
@@ -66,9 +65,5 @@ public class CoursController {
 		return coursServ.save(currentCours);
 
 	}
-	
-
-	}*/
-
 
 }
